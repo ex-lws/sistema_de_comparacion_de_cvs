@@ -1,4 +1,5 @@
 # Mediante esta clase se conecta a la base de datos postgreSQL 16.9
+#Esta es una prueba para git
 
 # Se importan las librerías necesarias
 import psycopg
