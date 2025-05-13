@@ -1,5 +1,5 @@
 # Mediante esta clase se conecta a la base de datos postgreSQL 16.9
-#Esta es una prueba para git
+# Utilizamos PostgreSQL 16.9 y psycopg 3.1.18. Además de pgAdemin. 
 
 # Se importan las librerías necesarias
 import psycopg
