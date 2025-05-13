@@ -1,0 +1,5 @@
+Seguir los siguientes pasos para poder trabajar en el mismo código. 
+
+1.- git pull = actualiza el repositorio clon a los últimos cambios del repositorio remoto.
+2.- Tras realizar y probar cambios, dar click en el ícono de + (stage all changes).
+3.- 
