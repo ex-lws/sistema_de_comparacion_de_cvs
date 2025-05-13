@@ -1,0 +1,30 @@
+# Entornos virtuales a ignorar por parte de Git
+venv/
+.venv/
+entornoVirtualUbuntuLinux/
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyd
+*.pyo
+
+# Entornos de desarrollo
+.vscode/
+.idea/
+
+# Archivos sensibles
+.env
+*.env
+
+# PostgreSQL
+/postgres_data/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
