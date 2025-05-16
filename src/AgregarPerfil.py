@@ -2,13 +2,17 @@
 
 #Versión 1.0 del código. 15/05/2025
 
-def recabarDatos():
+# Importar las librerias y clases necesarias
+from ConectarBD import conectarBD # Método para conectarnos a la base de datos
+
+def insertarDatos():
+    # Recabar datos
     # Variables y solicitudes por medio de consola.
 
     # Tipo de contratación
     seleccion_1 = input("Seleccione el tipo de contratacion: \
                         \n1.- Tiempo indeterminado, 2.- Becario, 3.- Por proyecto.")
-    
+
     if seleccion_1 == "1":
         tipoContratacion = "Tiempo Indeterminado"  
     elif seleccion_1 == "2":
@@ -17,24 +21,24 @@ def recabarDatos():
         tipoContratacion = "Por Proyecto"   
     else:
         print("Opción no válida. Por favor, seleccione una opción válida.")
-        return None
-    
+        
+
     # Horario de trabajo
     seleccion_2 = input("Ingrese el horario de trabajo: \
                         \n1.- Tiempo completo, 2.- Medio tiempo.")
-    
+
     if seleccion_2 == "1":
         horarioTrabajo = "Tiempo Completo"
     elif seleccion_2 == "2":
         horarioTrabajo = "Medio Tiempo"
     else:
         print("Opcion no valida. Por favor, seleccione una opción válida.")
-        return None
-    
+        
+
     #Modalidad de trabajo
     seleccion_3 = input("Ingrese la modalidad de trabajo: \
                         \n1.- Presencial, 2.- Hibrida, 3.-Remoto.")
-    
+
     if seleccion_3 == "1":
         modalidadTrabajo = "Presencial"
     elif seleccion_3 == "2":
@@ -43,7 +47,7 @@ def recabarDatos():
         modalidadTrabajo = "Remoto"
     else:
         print("Opcion no valida. Por favor, seleccione una opción válida.")
-        return None
+        
 
     # Salario minmo 
     seleccion_4 = float(input("Ingrese el salario minimo:"))
@@ -51,16 +55,16 @@ def recabarDatos():
         salarioMinimo = seleccion_4
     else:
         print("Opcion no valida. Por favor, seleccione una opción válida.")
-        return None
-    
+        
+
     # Salario maximo
     seleccion_5 = float(input("Ingrese el salario maximo:"))
     if seleccion_5 > 0 and seleccion_5 <= 10000000:
         salarioMaximo = seleccion_5
     else:
         print("Opcion no valida. Por favor, seleccione una opción válida.")
-        return None
-    
+        
+
     # Escolaridad
     seleccion_6 = input("Ingrese la escolaridad: \
                         \n1.- Educacion basica, 2.- Educacion medio superior, 3.- Educacion superior.")
@@ -72,8 +76,8 @@ def recabarDatos():
         escolaridad = "Educacion Superior"
     else:
         print("Opcion no valida. Por favor, seleccione una opción válida.")
-        return None
-    
+        
+
     # Area de trabajo
     seleccion_7 = input("Ingrese el area de trabajo: \
                         \n1.- Administracion/Oficina, 2.- Almacen/Logistica/Transporte, 3.- Atencion a clientes " \
@@ -133,13 +137,13 @@ def recabarDatos():
         areaTrabajo = "Otros"
     else:
         print("Opcion no valida. Por favor, seleccione una opción válida.")
-        return None      
+            
         
     # Puesto 
     puestoTrabajo = input("Ingrese el puesto de trabajo")
     if puestoTrabajo == "":
         print("Opcion no valida. Por favor, seleccione una opción válida.")
-        return None
+        
     else:
         puestoTrabajo = puestoTrabajo
 
@@ -223,7 +227,7 @@ def recabarDatos():
         ubicacion = "Guanajuato"
     else:   
         print("Opcion no valida. Por favor, seleccione una opción válida.")
-        return None
+        
 
     # Idioma (Solo idiomas comunes aparte del español)
     seleccion_9 = input("Ingresa el idioma: \n1.- Ingles, 2.- Frances, 3.- Portugues, 4.- Italiano, 5.- Aleman")
@@ -239,11 +243,11 @@ def recabarDatos():
         idioma = "Aleman"
     else:
         print("Opcion no valida. Por favor, seleccione una opción válida.")
-        return None
-    
+        
+
     # Nivel de idioma
     seleccion_10 = input("Ingrese el nivel de idioma: \
-                         \n1.- Basico, 2.- Intermedio, 3.- Avanzado.")
+                            \n1.- Basico, 2.- Intermedio, 3.- Avanzado.")
     if seleccion_10 == "1":
         nivelIdioma = "Basico"
     elif seleccion_10 == "2":
@@ -252,27 +256,27 @@ def recabarDatos():
         nivelIdioma = "Avanzado"
     else:
         print("Opcion no valida. Por favor, seleccione una opción válida.")
-        return None
-    
+        
+
     # Licencia de conducir
     seleccion_11 = input("Ingrese la licencia de conducir \
-                         \n1.- Si, 2.- No.")
+                            \n1.- Si, 2.- No.")
     if seleccion_11 == "1":
         licenciaConducir = "Si"
     elif seleccion_11 == "2":
         licenciaConducir = "No"
     else:
         print("Opcion no valida. Por favor, seleccione una opción válida.")
-        return None
-    
+        
+
     # Años de experiencia
     seleccion_12 = int(input("Ingrese los años de experiencia:"))
     if seleccion_12 >= 0 and seleccion_12 <= 80:
         anosExperiencia = seleccion_12
     else:
         print("Opcion no valida. Por favor, seleccione una opción válida.")
-        return None
-    
+        
+
     # Final del registro
     print("Los datos han sido registrados correctamente")
     print ("Tipo de contratacion: ", tipoContratacion)
@@ -289,4 +293,28 @@ def recabarDatos():
     print ("Licencia de conducir: ", licenciaConducir)
     print ("Años de experiencia: ", anosExperiencia)
 
-recabarDatos()
+    # Aquí iría el código para insertar los datos en la base de datos
+    conectar = conectarBD()
+    if not conectar:
+        print("No se pudo conectar a la base de datos")
+        return None
+    
+    with conectar.cursor() as cursor:
+        codigoSQL = """
+        INSERT INTO perfiles (tipoContratacion, horarioTrabajo, modalidadTrabajo, sueldoMensualMinimo, sueldoMensualMaximo, 
+        escolaridad, area, puesto, ubicacion, idioma, nivelIdioma, licenciaConducir, añosExperiencia) 
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
+        """
+        # Aquí se recaban los datos
+        parametros = (tipoContratacion, horarioTrabajo, modalidadTrabajo, salarioMinimo, salarioMaximo, escolaridad, areaTrabajo, puestoTrabajo, ubicacion, idioma, nivelIdioma, licenciaConducir, anosExperiencia)
+        
+        cursor.execute(codigoSQL, parametros)
+        conectar.commit()       
+        print("Los datos han sido insertados correctamente en la base de datos")
+        # Cerrar la conexión    
+        conectar.close()
+
+insertarDatos()
+
+
+
