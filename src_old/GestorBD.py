@@ -76,5 +76,40 @@ def insertarPerfil(parametros):
     conexion.commit()
     conexion.close()
 
+def eliminarPerfil(id):
+    conexion = sqlite3.connect(RUTA_BD)
+    cursor = conexion.cursor()
+    cursor.execute("DELETE FROM Perfiles WHERE id = ?", (id,))
+    conexion.commit()
+    conexion.close()
+    print(f"Perfil con ID {id} eliminado.")
+
+def modificarPerfil(id, parametros):
+    conexion = sqlite3.connect(RUTA_BD)
+    cursor = conexion.cursor()
+    cursor.execute('''
+        UPDATE Perfiles SET
+            tipoContratacion = ?,
+            horarioTrabajo = ?,
+            modalidadTrabajo = ?,
+            sueldoMensualMinimo = ?,
+            sueldoMensualMaximo = ?,
+            escolaridad = ?,
+            area = ?,
+            puestoTrabajo = ?,
+            ubicacion = ?,
+            idioma = ?,
+            nivelIdioma = ?,
+            licenciaConducir = ?,
+            anosExperiencia = ?
+        WHERE id = ?
+    ''', (*parametros, id))
+    conexion.commit()
+    conexion.close()
+    print(f"Perfil con ID {id} modificado.")
+
+    
+
+
 
 
