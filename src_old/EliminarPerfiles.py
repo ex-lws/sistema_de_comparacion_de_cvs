@@ -1,7 +1,7 @@
 # #Este codigo permite agregar un nuevo perfil al sistema
 
 #Versión 1.0 del código. 21/05/2025
-from src_old.GestorBD import *
+
 
 def recabarIdParaEliminarPerfil():
     # Recabar el ID del perfil a eliminar
