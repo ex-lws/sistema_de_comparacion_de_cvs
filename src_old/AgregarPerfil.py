@@ -3,9 +3,9 @@
 #Versión 1.0 del código. 15/05/2025
 
 # Importar las librerias y clases necesarias
-from ConectarBD import conectarBD # Método para conectarnos a la base de datos
+from src_old.GestorBD import *
 
-def insertarDatos():
+def recabarDatos():
     # Recabar datos
     # Variables y solicitudes por medio de consola.
 
@@ -52,7 +52,7 @@ def insertarDatos():
     # Salario minmo 
     seleccion_4 = float(input("Ingrese el salario minimo:"))
     if seleccion_4 > 0:
-        salarioMinimo = seleccion_4
+        sueldoMensualMinimo = seleccion_4
     else:
         print("Opcion no valida. Por favor, seleccione una opción válida.")
         
@@ -60,7 +60,7 @@ def insertarDatos():
     # Salario maximo
     seleccion_5 = float(input("Ingrese el salario maximo:"))
     if seleccion_5 > 0 and seleccion_5 <= 10000000:
-        salarioMaximo = seleccion_5
+        sueldoMensualMaximo = seleccion_5
     else:
         print("Opcion no valida. Por favor, seleccione una opción válida.")
         
@@ -90,51 +90,51 @@ def insertarDatos():
                         "\n22.- Aseo y seguridad, 23.- Otros.")
 
     if seleccion_7 == "1":
-        areaTrabajo = "Administracion/Oficina"
+        area = "Administracion/Oficina"
     elif seleccion_7 == "2":        
-        areaTrabajo = "Almacen/Logistica/Transporte"    
+        area = "Almacen/Logistica/Transporte"    
     elif seleccion_7 == "3":    
-        areaTrabajo = "Atencion a clientes"
+        area = "Atencion a clientes"
     elif seleccion_7 == "4":
-        areaTrabajo = "Call center/Telemercado"
+        area = "Call center/Telemercado"
     elif seleccion_7 == "5":
-        areaTrabajo = "Compras/Comercio exterior"
+        area = "Compras/Comercio exterior"
     elif seleccion_7 == "6":
-        areaTrabajo = "Construccion/Obra"  
+        area = "Construccion/Obra"  
     elif seleccion_7 == "7":
-        areaTrabajo = "Contabilidad/Finanzas"
+        area = "Contabilidad/Finanzas"
     elif seleccion_7 == "8":
-        areaTrabajo = "Direccion/Gerencia"
+        area = "Direccion/Gerencia"
     elif seleccion_7 == "9":
-        areaTrabajo = "Diseno/Artes graficas"
+        area = "Diseno/Artes graficas"
     elif seleccion_7 == "10":
-        areaTrabajo = "Docencia"
+        area = "Docencia"
     elif seleccion_7 == "11":
-        areaTrabajo = "Hosteleria/Turismo"
+        area = "Hosteleria/Turismo"
     elif seleccion_7 == "12":
-        areaTrabajo = "Informatica/Telecomunicaciones"
+        area = "Informatica/Telecomunicaciones"
     elif seleccion_7 == "13":
-        areaTrabajo = "Ingenieria"
+        area = "Ingenieria"
     elif seleccion_7 == "14":
-        areaTrabajo = "Investigacion y calidad" 
+        area = "Investigacion y calidad" 
     elif seleccion_7 == "15":
-        areaTrabajo = "Legal/Asesoria"
+        area = "Legal/Asesoria"
     elif seleccion_7 == "16":
-        areaTrabajo = "Mantenimiento y reparaciones tecnicas"
+        area = "Mantenimiento y reparaciones tecnicas"
     elif seleccion_7 == "17":
-        areaTrabajo = "Medicina/Salud"
+        area = "Medicina/Salud"
     elif seleccion_7 == "18":
-        areaTrabajo = "Mercadotecnia/Publicidad/Comunicacion"
+        area = "Mercadotecnia/Publicidad/Comunicacion"
     elif seleccion_7 == "19":
-        areaTrabajo = "Operarios/Produccion/Manufactura"
+        area = "Operarios/Produccion/Manufactura"
     elif seleccion_7 == "20":
-        areaTrabajo = "Recursos humanos"
+        area = "Recursos humanos"
     elif seleccion_7 == "21":
-        areaTrabajo = "Servicios generales"
+        area = "Servicios generales"
     elif seleccion_7 == "22":
-        areaTrabajo = "Aseo y seguridad"
+        area = "Aseo y seguridad"
     elif seleccion_7 == "23":
-        areaTrabajo = "Otros"
+        area = "Otros"
     else:
         print("Opcion no valida. Por favor, seleccione una opción válida.")
             
@@ -282,10 +282,10 @@ def insertarDatos():
     print ("Tipo de contratacion: ", tipoContratacion)
     print ("Horario de trabajo: ", horarioTrabajo)      
     print ("Modalidad de trabajo: ", modalidadTrabajo)
-    print ("Salario minimo: ", salarioMinimo)
-    print ("Salario maximo: ", salarioMaximo)
+    print ("Salario minimo: ", sueldoMensualMinimo)
+    print ("Salario maximo: ", sueldoMensualMaximo)
     print ("Escolaridad: ", escolaridad)
-    print ("Area de trabajo: ", areaTrabajo)
+    print ("Area de trabajo: ", area)
     print ("Puesto de trabajo: ", puestoTrabajo)
     print ("Ubicacion: ", ubicacion)
     print ("Idioma: ", idioma)
@@ -293,28 +293,10 @@ def insertarDatos():
     print ("Licencia de conducir: ", licenciaConducir)
     print ("Años de experiencia: ", anosExperiencia)
 
-    # Aquí iría el código para insertar los datos en la base de datos
-    conectar = conectarBD()
-    if not conectar:
-        print("No se pudo conectar a la base de datos")
-        return None
-    
-    with conectar.cursor() as cursor:
-        codigoSQL = """
-        INSERT INTO perfiles (tipoContratacion, horarioTrabajo, modalidadTrabajo, sueldoMensualMinimo, sueldoMensualMaximo, 
-        escolaridad, area, puesto, ubicacion, idioma, nivelIdioma, licenciaConducir, añosExperiencia) 
-        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
-        """
-        # Aquí se recaban los datos
-        parametros = (tipoContratacion, horarioTrabajo, modalidadTrabajo, salarioMinimo, salarioMaximo, escolaridad, areaTrabajo, puestoTrabajo, ubicacion, idioma, nivelIdioma, licenciaConducir, anosExperiencia)
-        
-        cursor.execute(codigoSQL, parametros)
-        conectar.commit()       
-        print("Los datos han sido insertados correctamente en la base de datos")
-        # Cerrar la conexión    
-        conectar.close()
+    # Codigo para insertar los datos en la base de datos con SQLite.
+    return (tipoContratacion, horarioTrabajo, modalidadTrabajo, sueldoMensualMinimo, sueldoMensualMaximo, escolaridad, area, puestoTrabajo, ubicacion, idioma, nivelIdioma, licenciaConducir, anosExperiencia)
 
-insertarDatos()
+
 
 
 
