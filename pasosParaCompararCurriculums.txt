@@ -1,0 +1,5 @@
+1. Subir los curriculums a la carpeta temporal (<=3).
+2. Ejecutar un bucle for que itera dentro de la carpeta cvs temporales para exrtaer las rutas relativas de cada curriculum(pdf).
+3. Crear un dicionario donde las claves son las rutas de los curriculums.
+4. Se ejecuta otro bucle que itera sobre la carpeta cvs temporales para extraer el texto plano de cada pdf.
+5. los textos extraidos se asignan como valores en el diccionario previamiente creado resultando en una estructura (tipo ruta cv:Texto extraido).
