@@ -1,0 +1,44 @@
+# Ignora TODOS los archivos dentro de la carpeta del entorno virtual (incluyendo ocultos)
+entornoVirtualUbuntuLinux/
+
+# Alternativas para otros nombres comunes de entornos (opcional)
+venv/
+env/
+.venv/
+
+# Archivos generados por Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Entornos y configuraciones
+*.env
+.env/
+.venv/
+
+# Dependencias de pip
+pip-selfcheck.json
+.Pipfile
+pip-log.txt
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Builds y distribuciones
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Logs y databases
+*.log
+*.sqlite3
+
+# Sistema
+.DS_Store
+Thumbs.db
