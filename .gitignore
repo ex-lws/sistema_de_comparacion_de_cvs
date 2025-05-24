@@ -1,27 +1,22 @@
-# Ignora TODOS los archivos dentro de la carpeta del entorno virtual (incluyendo ocultos)
+# Entorno virtual (ignora todo el contenido)
 entornoVirtualUbuntuLinux/
 
-# Alternativas para otros nombres comunes de entornos (opcional)
-venv/
-env/
-.venv/
-
-# Archivos generados por Python
+# Archivos de Python generados
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
 
-# Entornos y configuraciones
-*.env
-.env/
+# Configuraciones y variables de entorno
+.env
 .venv/
+env/
 
 # Dependencias de pip
 pip-selfcheck.json
-.Pipfile
-pip-log.txt
+Pipfile
+Pipfile.lock
 
 # Editor/IDE
 .vscode/
@@ -35,10 +30,11 @@ dist/
 *.egg-info/
 *.egg
 
-# Logs y databases
+# Logs y bases de datos
 *.log
 *.sqlite3
+*.db
 
-# Sistema
+# Archivos de sistema
 .DS_Store
 Thumbs.db
