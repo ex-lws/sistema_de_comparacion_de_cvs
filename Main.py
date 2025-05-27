@@ -4,8 +4,10 @@
 
 from src_old.GestorBD import *
 from src_old.AgregarPerfil import recabarDatos
-
 from src_old.ActualizarPerfil import recabarIdParaEditarPerfil
+from src_old.RealizarComparacion import *
+from src_old.AccionesCurriculum import *
+from src_old.SeleccionarPerfil import *
 
 
 def main():
@@ -30,7 +32,11 @@ def main():
     #id = recabarIdParaEditarPerfil()
     #datos = recabarDatos()
     #modificarPerfil(id, datos)
-    #verPerfiles()
+    verPerfiles()
+    id = recabarIdParaSeleccionarPerfil(3)
+    perfilEncontrado = str(obtener_perfil_por_id(id))
+    curriculums= str (generar_diccionario_textos(rutaCarpetaCurriculumsTemporales))
+    comparar_curriculums(curriculums, perfilEncontrado)
 
 
 main()

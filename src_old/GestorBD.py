@@ -108,6 +108,21 @@ def modificarPerfil(id, parametros):
     conexion.close()
     print(f"Perfil con ID {id} modificado.")
 
+def obtener_perfil_por_id(id):
+    conexion = sqlite3.connect(RUTA_BD)
+    cursor = conexion.cursor()
+    cursor.execute("SELECT * FROM Perfiles WHERE id = ?", (id,))
+    perfil = cursor.fetchone()
+    conexion.close()
+    
+    if perfil:
+        return perfil
+    else:
+        print(f"No se encontró un perfil con ID {id}.")
+        return None
+
+
+
     
 
 
