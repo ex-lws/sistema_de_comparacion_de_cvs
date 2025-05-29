@@ -33,10 +33,11 @@ def main():
     #datos = recabarDatos()
     #modificarPerfil(id, datos)
     verPerfiles()
-    id = recabarIdParaSeleccionarPerfil(3)
+    id = recabarIdParaSeleccionarPerfil()
     perfilEncontrado = str(obtener_perfil_por_id(id))
-    curriculums= str (generar_diccionario_textos(rutaCarpetaCurriculumsTemporales))
-    comparar_curriculums(curriculums, perfilEncontrado)
+    curriculums= generar_diccionario_textos(rutaCarpetaCurriculumsTemporales)
+    resultados=comparar_curriculums(curriculums, perfilEncontrado)
+    print(resultados)
 
 
 main()
