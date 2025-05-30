@@ -1,0 +1,10 @@
+#Estos son los requisitos o librerias que encesita el proyecto para funcionar correctamente
+
+python -- version >= 3.12
+sqlite3 --version >= the lastest version
+pdfminer.six --version >= 20250506
+sentence-transformers(MiniLM-L6-v2) --version >= 4.1.0
+os
+re
+
+
