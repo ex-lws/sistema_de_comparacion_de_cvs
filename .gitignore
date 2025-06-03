@@ -1,5 +1,6 @@
 # Entorno virtual (ignora todo el contenido)
 entornoVirtualUbuntuLinux/
+entornoVirtualWindows/
 
 # Archivos de Python generados
 __pycache__/
