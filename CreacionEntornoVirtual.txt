@@ -3,7 +3,7 @@ Requiere de tener instalado pip para Python.
 
 1.- Clonar el repositiorio y dentro de la carpeta crear una nueva carpeta llama entornoVirtual o venv.
 2.- Dentro de la terminal, entraremos con cd a la carpeta del repositiorio y escribiremos; python3 -m venv entornoVirtualUbuntuLinux
-3.- Una vez creado el entorno virtual lo vamos a activar, pues es donde se guardaran todas las librerias; source entornoVirtualUbuntuLinux/bin/activate
+3.- Una vez creado el entorno virtual lo vamos a activar, pues es donde se guardaran todas las librerias; source entornoVirtualUbuntuLinux/bin/activate, en el caso de Windows es: .\venv\Scripts\activate
 4.- Instalar las librerias que querramos ailsar por medio de; ip install psycopg
-5.- Desactivar el entorno; deactivate
+5.- Desactivar el entorno; deactivate y en Windows: deactivate
 6.- gitignore permite poder dejar de seguir los cambios el entorno virtual previamente creado (recomendado).
