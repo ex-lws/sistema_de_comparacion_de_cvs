@@ -14,6 +14,7 @@ def main():
     # Crear la base de datos y la tabla
     crearBD()
     crearTabla()
+    crearTablaResultados()
 
     # Recabar datos para insertar un perfil en la base de datos
     #datos = recabarDatos()

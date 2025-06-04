@@ -23,6 +23,7 @@ def crearBD():
 def crearTabla():
     # Crear un cursor para ejecutar comandos SQL
     conexion = sqlite3.connect(RUTA_BD)
+    conexion.execute("PRAGMA foreign_keys = ON")  # Activa llaves foráneas
     cursor = conexion.cursor()
     # Crear la tabla de perfiles si no existe
     cursor.execute('''
@@ -44,6 +45,27 @@ def crearTabla():
         )
     ''')
     print ("Tabla 'Perfiles' creada o ya existe.")
+    # Guardar los cambios y cerrar la conexión
+    conexion.commit()
+    conexion.close()
+
+def crearTablaResultados():
+    # Crear un cursor para ejecutar comandos SQL
+    conexion = sqlite3.connect(RUTA_BD)
+    conexion.execute("PRAGMA foreign_keys = ON")  # Activa llaves foráneas
+    cursor = conexion.cursor()
+    # Crear la tabla de perfiles si no existe
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS CurriculumsDefinitivos (
+            idOperacion INTEGER PRIMARY KEY AUTOINCREMENT,
+            nombre TEXT NOT NULL,
+            correo TEXT NOT NULL,
+            telefono TEXT NOT NULL,
+            idPerfil INTEGER NOT NULL,
+            FOREIGN KEY (idPerfil) REFERENCES Perfiles(id)
+        )
+    ''')
+    print ("Tabla 'CurriculumsDefinitivos' creada o ya existe.")
     # Guardar los cambios y cerrar la conexión
     conexion.commit()
     conexion.close()
