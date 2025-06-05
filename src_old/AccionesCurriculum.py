@@ -60,13 +60,13 @@ def generartxt(diccionario_final, rutaCarpetaCurriculumsTemporales):
 
 
 # Prubeas de las funciones
-resultados = generar_diccionario_textos(rutaCarpetaCurriculumsTemporales)
-generartxt(resultados, rutaCarpetaCurriculumsDefinitivos)
+#resultados = generar_diccionario_textos(rutaCarpetaCurriculumsTemporales)
+#generartxt(resultados, rutaCarpetaCurriculumsDefinitivos)
 
     
 # Ejemplo: imprimir resultados
-for ruta, texto in resultados.items():
-    print(f"\n📄 **RUTA RELATIVA: {ruta}**...")
-    print(f"**TEXTO EXTRAIDO: {texto[:20000]}**...")  # Muestra los primeros 200 caracteres
+#for ruta, texto in resultados.items():
+    #print(f"\n📄 **RUTA RELATIVA: {ruta}**...")
+    #print(f"**TEXTO EXTRAIDO: {texto[:20000]}**...")  # Muestra los primeros 200 caracteres
 
 
