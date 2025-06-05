@@ -1,6 +1,10 @@
-# #Este codigo permite agregar un nuevo perfil al sistema
+# EXPLICACIÓN: 
+# Este código permite guardar en una variable en ID de un perfil a eliminar.
 
-#Versión 1.0 del código. 21/05/2025
+# VERSIÓN:
+# Versión 1.5 del código. 05/06/2025.
+
+# Importar las librerías necesarias
 
 
 def recabarIdParaEliminarPerfil():

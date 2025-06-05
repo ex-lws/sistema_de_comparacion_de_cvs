@@ -1,3 +1,15 @@
+# EXPLICACIÓN: 
+# Este código permite realizar la comparación entre la cantidad de CVS limpiados y un perfil seleccionado.
+# Retorna una variable llamada resultados, que muestra los porcentajes de similitud.
+# Arroja resultados por cada uno de ellos. (Ajustar el prompt)
+
+# VERSIÓN:
+# Versión 1.0 del código. 13/05/2025.
+
+# Importar las librerías necesarias
+
+
+
 from sentence_transformers import SentenceTransformer, util
 
 # Carga el modelo MiniLM-L6-v2

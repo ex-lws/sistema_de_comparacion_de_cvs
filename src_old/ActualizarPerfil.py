@@ -1,8 +1,10 @@
-# Este codigo permite editar un perfil.
- 
-# Versión 1.0 del código. 15/05/2025
+# EXPLICACIÓN: 
+# Este código permite poder ingresar un ID para posteriormente usarlo y actualizar un perfil vía SQL.
 
-# Importar las librerias y clases necesarias
+# VERSIÓN:
+# Versión 1.5 del código. 15/05/2025.
+
+# Importar las librerías necesarias
 
 def recabarIdParaEditarPerfil():
     # Recabar el ID del perfil a eliminar

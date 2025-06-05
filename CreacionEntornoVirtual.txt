@@ -1,5 +1,6 @@
 Este archivo tiene como finalidad poder aclarar el proceso de como crear un entorno virtual en Ubuntu Linux aunque el proceso es parecido a Windows.
 Requiere de tener instalado pip para Python. 
+Anexo el proceso para crear un venv en Windows.
 
 1.- Clonar el repositiorio y dentro de la carpeta crear una nueva carpeta llama entornoVirtual o venv.
 2.- Dentro de la terminal, entraremos con cd a la carpeta del repositiorio y escribiremos; python3 -m venv entornoVirtualUbuntuLinux

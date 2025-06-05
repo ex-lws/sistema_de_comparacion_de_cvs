@@ -1,15 +1,15 @@
-# Mediante esta clase se hacen los diversos metodos para interactuar con la base de datos.
-# Crear la base de datos.
-# Crear la tabla.
-# Operaciones CRUD.
+# EXPLICACIÓN: 
+# Este código permite realizar las diferentes acciones CRUD del sistema.
 
-# Versión 1.0 del código. 21/05/2025
+# VERSIÓN:
+# Versión 1.5 del código. 05/06/2025.
 
-# Librerías necesarias
+# Importar las librerías necesarias
+
 import sqlite3
 from pathlib import Path
 
-
+# Ruta de la base de datos en el proyecto.
 RUTA_BD = Path('BD/Perfiles.bd')
 
 def crearBD():
@@ -90,7 +90,7 @@ def verPerfiles():
         print(perfil)
     conexion.close()
 
-
+# Insertar perfiles (Requiere de previamente recoger los datos a insertar)
 def insertarPerfil(parametros):
     conexion = sqlite3.connect(RUTA_BD)
     cursor = conexion.cursor()
@@ -104,6 +104,7 @@ def insertarPerfil(parametros):
     conexion.commit()
     conexion.close()
 
+# Eliminar un perfil por medio del ID. (Requiere de recoger un ID)
 def eliminarPerfil(id):
     conexion = sqlite3.connect(RUTA_BD)
     cursor = conexion.cursor()
@@ -112,6 +113,7 @@ def eliminarPerfil(id):
     conexion.close()
     print(f"Perfil con ID {id} eliminado.")
 
+# Actualizar un perfil por medio del ID. (Requiere de recoger un ID y modificar parametros)
 def modificarPerfil(id, parametros):
     conexion = sqlite3.connect(RUTA_BD)
     cursor = conexion.cursor()
@@ -137,6 +139,7 @@ def modificarPerfil(id, parametros):
     conexion.close()
     print(f"Perfil con ID {id} modificado.")
 
+# Seleccionar un perfil y guardarlo en una variable por medio de un select from id (Requiere de recabar el ID)
 def obtener_perfil_por_id(id):
     conexion = sqlite3.connect(RUTA_BD)
     cursor = conexion.cursor()

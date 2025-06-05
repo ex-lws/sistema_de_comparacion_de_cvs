@@ -1,4 +1,14 @@
-# Version 2.0 de las acciones respecto a los curriculums.
+# EXPLICACIÓN: 
+# Este código permite realizar las diferentes acciones de movimientos de PDFS (CVS) dentro del sistema.
+
+# VERSIÓN:
+# Versión 1.5 del código. 05/06/2025.
+
+# Importar las librerías necesarias
+
+#NOTA: 
+# Estos métodos requieren de returns de otros métodos para poder funcionar
+# Llamar desde el main siguiendo el flujo del programa.
 
 import os
 import re
@@ -18,6 +28,7 @@ def extraerTexto(rutaCarpetaCurriculumsTemporales):
     except Exception as e:
         return f"ERROR, NO HA SIDO POSIBLE EXTRAER EL TEXTO DEL PDF... : {str(e)}"
     
+# Limpiar texto
 def limpiar_texto(texto):
     """
     Limpia el texto eliminando saltos de línea, espacios extra y caracteres no deseados.
@@ -45,6 +56,7 @@ def generar_diccionario_textos(rutaCarpetaCurriculumsTemporales):
     
     return diccionario_final
 
+# Tras la limpieza genera un txt en pro de mejorar el rendimiento del programa.
 def generartxt(diccionario_final, rutaCarpetaCurriculumsTemporales):
     """
     Genera un archivo de texto con el contenido del diccionario.
@@ -58,15 +70,13 @@ def generartxt(diccionario_final, rutaCarpetaCurriculumsTemporales):
     
     print(f"Archivo de texto generado en: {ruta_txt}")
 
+def mostrarResultadosTrasComparacion (resultados):
+    for ruta, texto in resultados.items():
+        print(f"\n📄 **RUTA RELATIVA: {ruta}**...")
+        print(f"**TEXTO EXTRAIDO: {texto[:20000]}**...")  # Muestra los primeros 200 caracteres
 
-# Prubeas de las funciones
-#resultados = generar_diccionario_textos(rutaCarpetaCurriculumsTemporales)
-#generartxt(resultados, rutaCarpetaCurriculumsDefinitivos)
 
-    
-# Ejemplo: imprimir resultados
-#for ruta, texto in resultados.items():
-    #print(f"\n📄 **RUTA RELATIVA: {ruta}**...")
-    #print(f"**TEXTO EXTRAIDO: {texto[:20000]}**...")  # Muestra los primeros 200 caracteres
+
+
 
 

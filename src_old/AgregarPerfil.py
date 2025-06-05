@@ -1,8 +1,12 @@
-#Este codigo permite agregar un nuevo perfil al sistema
+# EXPLICACIÓN: 
+# Este código permite recoger los datos necesarios para dar de alta un perfil.
+# Los datos se guardan en variables tipo String de Python.
 
-#Versión 1.0 del código. 15/05/2025
+# VERSIÓN:
+# Versión 1.5 del código. 05/06/2025.
 
-# Importar las librerias y clases necesarias
+# Importar las librerías necesarias
+
 from src_old.GestorBD import *
 
 def recabarDatos():

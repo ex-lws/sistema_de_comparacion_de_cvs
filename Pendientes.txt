@@ -1,6 +1,6 @@
 2.- Crear metodo que inserte los datos en la tabla resultados. (Join de la tabla perfiles y datos del CV limpiado)
-3.- Metodo para mover los cvs positivos de la carpeta de cvs temporales a definitivos.
-4.- Metodo para limpiar los archivos de carpet temporal y definitiva cada 10 dias.
+3.- Metodo para mover los cvs positivos de la carpeta de cvs temporales a definitivos. (Se usarán para la tabla de resultados)
+4.- Metodo para limpiar los archivos de carpeta temporal y definitiva cada 10 dias.
 5.- Metodo para limpiar todo lo que contiene la base de datos cada 10 dias.
 6.- Prueba de testing de los metodos.
 7.- Mejora del codigo base.
@@ -8,4 +8,5 @@
 9.- Pruebas de usuario.
 10.- Creacion del ejecutable.
 11.- Prueba de la aplicacion terminada.
-12.- Revisar el metodo de acciones curriculum porque falta optimizarlo
+12.- Revisar el metodo de acciones curriculum porque falta optimizarlo.
+13.- Try Catch en el modelo de lenguaje, pues únicamente funciona vía WI-FI.
