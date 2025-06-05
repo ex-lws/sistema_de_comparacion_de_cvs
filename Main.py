@@ -37,11 +37,13 @@ def main():
     limpiar_texto(texto)
     diccionarioTrasLimpieza = generar_diccionario_textos(rutaCarpetaCurriculumsTemporales)
     idPerfil = recabarIdParaSeleccionarPerfil() 
+    perfil = obtener_perfil_por_id(idPerfil)
     print ("Mostrar resultados de la comparación...")
-    resultadosComparacion = comparar_curriculums(diccionarioTrasLimpieza, idPerfil)
+    resultadosComparacion = comparar_curriculums(diccionarioTrasLimpieza, perfil)
+    print (resultadosComparacion)
     mostrarResultadosTrasComparacion(resultadosComparacion)
-    #moverCurriculumsTemporalesADefinitivos(resultadosComparacion, rutaCarpetaCurriculumsTemporales, rutaCarpetaCurriculumsDefinitivos)
-    #print ("Los CVS temporales han sido movidos a la carpeta definitiva.")
+    moverCurriculumsTemporalesADefinitivos(resultadosComparacion, rutaCarpetaCurriculumsTemporales, rutaCarpetaCurriculumsDefinitivos)
+    print ("Los CVS temporales han sido movidos a la carpeta definitiva.")
     # 2.- Mostrar las diferentes opciones del sistema al usuario y perdir la elección de una.
     # 3.- Agregar un perfil. (Recoger datos y darlo de alta en la BD (Perfiles))
     # 4.- Agregar un CV (Permite subir un CV y realizar la extracción de texto, limpieza y optimización).
@@ -53,7 +55,5 @@ def main():
     # 9.- Permitir actualizar un perfil.
     # 10.- Permitir poder consultar los resultados (consulta SQL de la tabla Resultados).
     # 11.- Ver perfiles.
-
-
 
 main()
