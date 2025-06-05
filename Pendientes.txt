@@ -8,3 +8,4 @@
 9.- Pruebas de usuario.
 10.- Creacion del ejecutable.
 11.- Prueba de la aplicacion terminada.
+12.- Revisar el metodo de acciones curriculum porque falta optimizarlo
