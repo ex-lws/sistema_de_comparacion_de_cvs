@@ -1,5 +1,4 @@
-1.- Crear la tabla de resultados con los campos pertinentes.
-2.- Crear metodo que inserte los datos en la tabla.
+2.- Crear metodo que inserte los datos en la tabla resultados. (Join de la tabla perfiles y datos del CV limpiado)
 3.- Metodo para mover los cvs positivos de la carpeta de cvs temporales a definitivos.
 4.- Metodo para limpiar los archivos de carpet temporal y definitiva cada 10 dias.
 5.- Metodo para limpiar todo lo que contiene la base de datos cada 10 dias.
@@ -9,4 +8,3 @@
 9.- Pruebas de usuario.
 10.- Creacion del ejecutable.
 11.- Prueba de la aplicacion terminada.
-12.- Agregar el campo del nombre del perfil a la tabla de perfiles y a la tabla de resultados. Cambios de logica en el crud.

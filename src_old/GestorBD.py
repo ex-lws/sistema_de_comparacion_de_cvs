@@ -57,16 +57,21 @@ def crearTablaResultados():
     cursor = conexion.cursor()
     # Crear la tabla de perfiles si no existe
     cursor.execute('''
-        CREATE TABLE IF NOT EXISTS CurriculumsDefinitivos (
-            idOperacion INTEGER PRIMARY KEY AUTOINCREMENT,
-            nombre TEXT NOT NULL,
-            correo TEXT NOT NULL,
-            telefono TEXT NOT NULL,
+        CREATE TABLE IF NOT EXISTS Resultados (
+            idResultado INTEGER PRIMARY KEY AUTOINCREMENT,
+            nombreCandidato TEXT NOT NULL,
+            porcentajeSimilutd TEXT NOT NULL,
+            puestoTrabajo TEXT NULL,
+            numeroContacto TEXT NOT NULL,
+            correoContacto TEXT NOT NULL,
+            resumen TEXT NOT NULL,
+            pdfCurriculum BLOP,
+            nombrePefil NOT NULL,
             idPerfil INTEGER NOT NULL,
             FOREIGN KEY (idPerfil) REFERENCES Perfiles(id)
         )
     ''')
-    print ("Tabla 'CurriculumsDefinitivos' creada o ya existe.")
+    print ("Tabla 'Resultados' creada o ya existe.")
     # Guardar los cambios y cerrar la conexión
     conexion.commit()
     conexion.close()
