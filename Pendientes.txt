@@ -9,3 +9,4 @@
 9.- Pruebas de usuario.
 10.- Creacion del ejecutable.
 11.- Prueba de la aplicacion terminada.
+12.- Agregar el campo del nombre del perfil a la tabla de perfiles y a la tabla de resultados. Cambios de logica en el crud.

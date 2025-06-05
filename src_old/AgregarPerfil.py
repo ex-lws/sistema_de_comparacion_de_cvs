@@ -9,6 +9,10 @@ def recabarDatos():
     # Recabar datos
     # Variables y solicitudes por medio de consola.
 
+    # Nombre del perfil
+
+    nombrePerfil = input("Escriba el nombre del perfil")
+
     # Tipo de contratación
     seleccion_1 = input("Seleccione el tipo de contratacion: \
                         \n1.- Tiempo indeterminado, 2.- Becario, 3.- Por proyecto.")
@@ -279,6 +283,7 @@ def recabarDatos():
 
     # Final del registro
     print("Los datos han sido registrados correctamente")
+    print ("Nombre del perfil:", nombrePerfil)
     print ("Tipo de contratacion: ", tipoContratacion)
     print ("Horario de trabajo: ", horarioTrabajo)      
     print ("Modalidad de trabajo: ", modalidadTrabajo)
@@ -294,7 +299,7 @@ def recabarDatos():
     print ("Años de experiencia: ", anosExperiencia)
 
     # Codigo para insertar los datos en la base de datos con SQLite.
-    return (tipoContratacion, horarioTrabajo, modalidadTrabajo, sueldoMensualMinimo, sueldoMensualMaximo, escolaridad, area, puestoTrabajo, ubicacion, idioma, nivelIdioma, licenciaConducir, anosExperiencia)
+    return (nombrePerfil, tipoContratacion, horarioTrabajo, modalidadTrabajo, sueldoMensualMinimo, sueldoMensualMaximo, escolaridad, area, puestoTrabajo, ubicacion, idioma, nivelIdioma, licenciaConducir, anosExperiencia)
 
 
 

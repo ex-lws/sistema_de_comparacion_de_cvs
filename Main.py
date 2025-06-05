@@ -11,17 +11,18 @@ from src_old.SeleccionarPerfil import *
 
 
 def main():
+    print ("Main")
     # Crear la base de datos y la tabla
     crearBD()
     crearTabla()
     crearTablaResultados()
 
     # Recabar datos para insertar un perfil en la base de datos
-    #datos = recabarDatos()
-    #insertarPerfil(datos)
+    datos = recabarDatos()
+    insertarPerfil(datos)
 
     # Ver todos los perfiles
-    #verPerfiles()
+    verPerfiles()
 
     # Recabar el ID del perfil a eliminar y eliminarlo
     #id = recabarIdParaEliminarPerfil()
@@ -33,12 +34,12 @@ def main():
     #id = recabarIdParaEditarPerfil()
     #datos = recabarDatos()
     #modificarPerfil(id, datos)
-    verPerfiles()
-    id = recabarIdParaSeleccionarPerfil()
-    perfilEncontrado = str(obtener_perfil_por_id(id))
-    curriculums= generar_diccionario_textos(rutaCarpetaCurriculumsTemporales)
-    resultados=comparar_curriculums(curriculums, perfilEncontrado)
-    print(resultados)
+    #verPerfiles()
+    #id = recabarIdParaSeleccionarPerfil()
+    #perfilEncontrado = str(obtener_perfil_por_id(id))
+    #curriculums= generar_diccionario_textos(rutaCarpetaCurriculumsTemporales)
+    #resultados=comparar_curriculums(curriculums, perfilEncontrado)
+    #print(resultados)
 
 
 main()

@@ -29,6 +29,7 @@ def crearTabla():
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS Perfiles (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nombrePerfil TEXT NOT NULL,
             tipoContratacion TEXT NOT NULL,
             horarioTrabajo TEXT NOT NULL,
             modalidadTrabajo TEXT NOT NULL,
@@ -90,10 +91,10 @@ def insertarPerfil(parametros):
     cursor = conexion.cursor()
     cursor.execute('''
         INSERT INTO Perfiles (
-            tipoContratacion, horarioTrabajo, modalidadTrabajo, sueldoMensualMinimo,
+            nombrePerfil, tipoContratacion, horarioTrabajo, modalidadTrabajo, sueldoMensualMinimo,
             sueldoMensualMaximo, escolaridad, area, puestoTrabajo, ubicacion, idioma,
             nivelIdioma, licenciaConducir, anosExperiencia
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ''', parametros)
     conexion.commit()
     conexion.close()
@@ -111,6 +112,7 @@ def modificarPerfil(id, parametros):
     cursor = conexion.cursor()
     cursor.execute('''
         UPDATE Perfiles SET
+            nombrePerfil = ?,
             tipoContratacion = ?,
             horarioTrabajo = ?,
             modalidadTrabajo = ?,
