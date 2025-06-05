@@ -70,13 +70,26 @@ def generartxt(diccionario_final, rutaCarpetaCurriculumsTemporales):
     
     print(f"Archivo de texto generado en: {ruta_txt}")
 
-def mostrarResultadosTrasComparacion (resultados):
-    for ruta, texto in resultados.items():
-        print(f"\n📄 **RUTA RELATIVA: {ruta}**...")
-        print(f"**TEXTO EXTRAIDO: {texto[:20000]}**...")  # Muestra los primeros 200 caracteres
 
 
+# Para mover los curriculums temporales a definitivos
+# Requereimos de la variable resultados que es un diccionario posterior a la comparacion de los curriculums.
+def moverCurriculumsTemporalesADefinitivos(diccionario_resultados, rutaCarpetaCurriculumsTemporales, rutaCarpetaCurriculumsDefinitivos):
+    """
+    Mueve los archivos PDF de la carpeta temporal a la carpeta definitiva,
+    solo para las rutas presentes en el diccionario_resultados.
+    """
+    if not os.path.exists(rutaCarpetaCurriculumsDefinitivos):
+        os.makedirs(rutaCarpetaCurriculumsDefinitivos)
 
+    for ruta_relativa in diccionario_resultados.keys():
+        ruta_origen = os.path.join(rutaCarpetaCurriculumsTemporales, ruta_relativa)
+        ruta_destino = os.path.join(rutaCarpetaCurriculumsDefinitivos, os.path.basename(ruta_relativa))
+        if os.path.exists(ruta_origen):
+            os.rename(ruta_origen, ruta_destino)
+            print(f"Movido: {ruta_relativa} a {rutaCarpetaCurriculumsDefinitivos}")
+        else:
+            print(f"No encontrado: {ruta_origen}")
 
 
 

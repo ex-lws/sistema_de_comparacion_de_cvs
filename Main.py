@@ -19,11 +19,29 @@ from src_old.RealizarComparacion import *
 from src_old.AccionesCurriculum import *
 from src_old.SeleccionarPerfil import *
 
+# Variables globales
+# Ruta de la carpeta de curriculums temporales
+rutaCarpetaCurriculumsTemporales = "cvsTermporales"  # Cambia por tu ruta real
+rutaCarpetaCurriculumsDefinitivos = "cvsDefinitivos"  # Cambia por tu ruta real
+
 
 def main():
     # INICA EL FLUJO IDEAL DEL PROGRAMA EN CONSOLA
 
     # 1.- Crear si no existe ya la base de datos y sus tablas.
+    verPerfiles()
+    crearBD()
+    crearTabla()
+    crearTablaResultados()
+    texto = extraerTexto(rutaCarpetaCurriculumsTemporales)
+    limpiar_texto(texto)
+    diccionarioTrasLimpieza = generar_diccionario_textos(rutaCarpetaCurriculumsTemporales)
+    idPerfil = recabarIdParaSeleccionarPerfil() 
+    print ("Mostrar resultados de la comparación...")
+    resultadosComparacion = comparar_curriculums(diccionarioTrasLimpieza, idPerfil)
+    mostrarResultadosTrasComparacion(resultadosComparacion)
+    #moverCurriculumsTemporalesADefinitivos(resultadosComparacion, rutaCarpetaCurriculumsTemporales, rutaCarpetaCurriculumsDefinitivos)
+    #print ("Los CVS temporales han sido movidos a la carpeta definitiva.")
     # 2.- Mostrar las diferentes opciones del sistema al usuario y perdir la elección de una.
     # 3.- Agregar un perfil. (Recoger datos y darlo de alta en la BD (Perfiles))
     # 4.- Agregar un CV (Permite subir un CV y realizar la extracción de texto, limpieza y optimización).
@@ -34,37 +52,8 @@ def main():
     # 8.- Permitir elimianar un perfil.
     # 9.- Permitir actualizar un perfil.
     # 10.- Permitir poder consultar los resultados (consulta SQL de la tabla Resultados).
+    # 11.- Ver perfiles.
 
-    # INCIA LA LLAMADA DE METODOS:
-    
-    # Crear la base de datos y la tabla
-    crearBD()
-    crearTabla()
-    crearTablaResultados()
-
-    # Recabar datos para insertar un perfil en la base de datos
-    datos = recabarDatos()
-    insertarPerfil(datos)
-
-    # Ver todos los perfiles
-    verPerfiles()
-
-    # Recabar el ID del perfil a eliminar y eliminarlo
-    #id = recabarIdParaEliminarPerfil()
-    #eliminarPerfil(id)
-    #verPerfiles()
-
-    # Recabar el ID del perfil a editar y los actualizar nuevos datos
-    #verPerfiles()
-    #id = recabarIdParaEditarPerfil()
-    #datos = recabarDatos()
-    #modificarPerfil(id, datos)
-    #verPerfiles()
-    #id = recabarIdParaSeleccionarPerfil()
-    #perfilEncontrado = str(obtener_perfil_por_id(id))
-    #curriculums= generar_diccionario_textos(rutaCarpetaCurriculumsTemporales)
-    #resultados=comparar_curriculums(curriculums, perfilEncontrado)
-    #print(resultados)
 
 
 main()

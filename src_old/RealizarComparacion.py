@@ -24,6 +24,13 @@ def comparar_curriculums(curriculums, perfilEncontrado):
     for nombre, texto in curriculums.items():
         embedding_cv = modelo.encode(texto, convert_to_tensor=True)
         similitud = util.pytorch_cos_sim(embedding_perfil, embedding_cv).item()
-        porcentaje = f"{round(similitud * 100, 2)} %"
-        resultados[nombre] = porcentaje
+        porcentaje_num = round(similitud * 100, 2)
+        if porcentaje_num >= 20.0:
+            resultados[nombre] = f"{porcentaje_num} %"
     return resultados
+
+def mostrarResultadosTrasComparacion (resultados):
+    for ruta, texto in resultados.items():
+        print(f"\n📄 **RUTA RELATIVA: {ruta}**...")
+        print(f"**TEXTO EXTRAIDO: {texto[:20000]}**...")  # Muestra los primeros 200 caracteres
+    
