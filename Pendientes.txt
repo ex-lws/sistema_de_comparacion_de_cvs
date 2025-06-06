@@ -10,3 +10,4 @@
 11.- Prueba de la aplicacion terminada.
 12.- Revisar el metodo de acciones curriculum porque falta optimizarlo.
 13.- Try Catch en el modelo de lenguaje, pues únicamente funciona vía WI-FI.
+14.- Palabras para buscar el resumen en un CV: resumen, habilidades, conocimientos, oferta profesional.

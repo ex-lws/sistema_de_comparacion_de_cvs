@@ -60,14 +60,12 @@ def crearTablaResultados():
         CREATE TABLE IF NOT EXISTS Resultados (
             idResultado INTEGER PRIMARY KEY AUTOINCREMENT,
             nombreCandidato TEXT NOT NULL,
-            porcentajeSimilutd TEXT NOT NULL,
-            puestoTrabajo TEXT NULL,
-            numeroContacto TEXT NOT NULL,
-            correoContacto TEXT NOT NULL,
+            porcentajeSimilitud TEXT NOT NULL,
+            puestoTrabajo TEXT NULL, -- Proviene de perfiles BD
             resumen TEXT NOT NULL,
             pdfCurriculum BLOP,
-            nombrePefil NOT NULL,
-            idPerfil INTEGER NOT NULL,
+            nombrePefil NOT NULL, -- Proviene de perfiles BD
+            idPerfil INTEGER NOT NULL, -- Proviene de perfiles BD 
             FOREIGN KEY (idPerfil) REFERENCES Perfiles(id)
         )
     ''')

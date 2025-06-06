@@ -38,12 +38,17 @@ def main():
     diccionarioTrasLimpieza = generar_diccionario_textos(rutaCarpetaCurriculumsTemporales)
     idPerfil = recabarIdParaSeleccionarPerfil() 
     perfil = obtener_perfil_por_id(idPerfil)
+    print(perfil)
     print ("Mostrar resultados de la comparación...")
     resultadosComparacion = comparar_curriculums(diccionarioTrasLimpieza, perfil)
-    print (resultadosComparacion)
+    # Tras la comparación se puede ingestar si existe la variable en la tabla resultados.
     mostrarResultadosTrasComparacion(resultadosComparacion)
-    moverCurriculumsTemporalesADefinitivos(resultadosComparacion, rutaCarpetaCurriculumsTemporales, rutaCarpetaCurriculumsDefinitivos)
-    print ("Los CVS temporales han sido movidos a la carpeta definitiva.")
+
+
+
+    
+    #moverCurriculumsTemporalesADefinitivos(resultadosComparacion, rutaCarpetaCurriculumsTemporales, rutaCarpetaCurriculumsDefinitivos)
+    #print ("Los CVS temporales han sido movidos a la carpeta definitiva.")
     # 2.- Mostrar las diferentes opciones del sistema al usuario y perdir la elección de una.
     # 3.- Agregar un perfil. (Recoger datos y darlo de alta en la BD (Perfiles))
     # 4.- Agregar un CV (Permite subir un CV y realizar la extracción de texto, limpieza y optimización).
