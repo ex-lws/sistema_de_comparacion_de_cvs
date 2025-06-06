@@ -17,9 +17,3 @@
 # idPerfil -- Proviene de perfiles BD
 
 # Librerias necesarias
-import sqlite3
-from pathlib import Path
-
-# Ruta de la base de datos en el proyecto.
-RUTA_BD = Path('BD/Perfiles.bd')
-
