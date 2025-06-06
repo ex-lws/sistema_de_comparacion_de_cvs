@@ -18,6 +18,7 @@ from src_old.ActualizarPerfil import recabarIdParaEditarPerfil
 from src_old.RealizarComparacion import *
 from src_old.AccionesCurriculum import *
 from src_old.SeleccionarPerfil import *
+from src_old.AgregarResultados import *
 
 # Variables globales
 # Ruta de la carpeta de curriculums temporales
@@ -43,12 +44,15 @@ def main():
     resultadosComparacion = comparar_curriculums(diccionarioTrasLimpieza, perfil)
     # Tras la comparación se puede ingestar si existe la variable en la tabla resultados.
     mostrarResultadosTrasComparacion(resultadosComparacion)
-
+    moverCurriculumsTemporalesADefinitivos(resultadosComparacion, rutaCarpetaCurriculumsTemporales, rutaCarpetaCurriculumsDefinitivos)
+    print ("Los CVS temporales han sido movidos a la carpeta definitiva.")
+    leer_pdf_como_blob(rutaCarpetaCurriculumsDefinitivos)
+    extraer_nombre_desde_ruta(rutaCarpetaCurriculumsDefinitivos)
+    insertar_resultados(resultadosComparacion, idPerfil)
+    verResultados()
 
 
     
-    #moverCurriculumsTemporalesADefinitivos(resultadosComparacion, rutaCarpetaCurriculumsTemporales, rutaCarpetaCurriculumsDefinitivos)
-    #print ("Los CVS temporales han sido movidos a la carpeta definitiva.")
     # 2.- Mostrar las diferentes opciones del sistema al usuario y perdir la elección de una.
     # 3.- Agregar un perfil. (Recoger datos y darlo de alta en la BD (Perfiles))
     # 4.- Agregar un CV (Permite subir un CV y realizar la extracción de texto, limpieza y optimización).
