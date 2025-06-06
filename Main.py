@@ -46,9 +46,7 @@ def main():
     mostrarResultadosTrasComparacion(resultadosComparacion)
     moverCurriculumsTemporalesADefinitivos(resultadosComparacion, rutaCarpetaCurriculumsTemporales, rutaCarpetaCurriculumsDefinitivos)
     print ("Los CVS temporales han sido movidos a la carpeta definitiva.")
-    leer_pdf_como_blob(rutaCarpetaCurriculumsDefinitivos)
-    extraer_nombre_desde_ruta(rutaCarpetaCurriculumsDefinitivos)
-    insertar_resultados(resultadosComparacion, idPerfil)
+    # Insertar resultados en la base de datos, en la tabla Resultados.
     verResultados()
 
 
