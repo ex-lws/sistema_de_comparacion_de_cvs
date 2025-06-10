@@ -18,8 +18,7 @@ from src_old.ActualizarPerfil import recabarIdParaEditarPerfil
 from src_old.RealizarComparacion import *
 from src_old.AccionesCurriculum import *
 from src_old.SeleccionarPerfil import *
-from src_old.AgregarResultados import *
-from src_old.InsertarResultados import *
+from src_old.GenerarResumen import *
 
 # Variables globales
 # Ruta de la carpeta de curriculums temporales

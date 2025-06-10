@@ -8,6 +8,8 @@
 
 import sqlite3
 from pathlib import Path
+import os
+from src_old.GenerarResumen import *
 
 # Ruta de la base de datos en el proyecto.
 RUTA_BD = Path('BD/Perfiles.bd')
@@ -167,8 +169,67 @@ def verResultadosTabla():
         return None
 
 
+#Obtener los 3 campos de perfiles que son usados para insertar en resultados.
+def obtener_perfil_por_id(id_perfil):
+    conn = sqlite3.connect(RUTA_BD)
+    cursor = conn.cursor()
+    
+    cursor.execute('''
+        SELECT id, nombrePerfil, puestoTrabajo
+        FROM Perfiles
+        WHERE id = ?
+    ''', (id_perfil,))
+    
+    fila = cursor.fetchone()
+    conn.close()
+    
+    if fila:
+        return {
+            "id": fila[0],
+            "nombrePerfil": fila[1],
+            "puestoTrabajo": fila[2]
+        }
+    else:
+        return None
 
+#Metodos necesarios para insertar en la tabla de resultados
+def extraer_nombre_candidato(nombre_archivo):
+    # Asume que el nombre es algo como: "CV_JUAN PÉREZ_MARKETING.pdf"
+    base = os.path.basename(nombre_archivo)
+    nombre = os.path.splitext(base)[0]
+    nombre = nombre.replace("CV_", "").replace("_", " ").strip()
+    return nombre
 
+def insertar_resultados_comparacion(resultadosComparacion, ruta_definitiva, perfil, ruta_bd):
+    for nombre_archivo, porcentaje_similitud in resultadosComparacion.items():
+        ruta_pdf = os.path.join(ruta_definitiva, os.path.basename(nombre_archivo))
+
+        # Extraer valores
+        nombre_candidato = extraer_nombre_candidato(nombre_archivo)
+        texto = extraer_texto_pdf(ruta_pdf)
+        resumen = obtener_resumen(texto)
+
+        with open(ruta_pdf, "rb") as f:
+            pdf_bytes = f.read()
+
+        # Insertar en la tabla Resultados
+        conn = sqlite3.connect(ruta_bd)
+        cursor = conn.cursor()
+        cursor.execute('''
+            INSERT INTO Resultados (
+                nombreCandidato, porcentajeSimilitud, puestoTrabajo, resumen, pdfCurriculum, nombrePefil, idPerfil
+            ) VALUES (?, ?, ?, ?, ?, ?, ?)
+        ''', (
+            nombre_candidato,
+            porcentaje_similitud,
+            perfil["puestoTrabajo"],
+            resumen,
+            pdf_bytes,
+            perfil["nombrePerfil"],
+            perfil["id"]
+        ))
+        conn.commit()
+        conn.close()
 
 
     
