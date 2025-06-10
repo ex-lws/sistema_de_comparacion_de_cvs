@@ -1,10 +1,3 @@
-2.- Crear metodo que inserte los datos en la tabla resultados. Verificar campos que se pueden reutilizar.
- En el caoso del PDF: Palabras para buscar el resumen en un CV: resumen, habilidades, conocimientos, 
- oferta profesional.
-
- En el caso de perfiles, se pueden reutilziar campos de la tabla perfiles. 
-
- 
 4.- Metodo para limpiar los archivos de carpeta temporal y definitiva cada 10 dias.
 5.- Metodo para limpiar todo lo que contiene la base de datos cada 10 dias.
 6.- Prueba de testing de los metodos.
@@ -13,3 +6,4 @@
 9.- Pruebas de usuario.
 10.- Creacion del ejecutable.
 11.- Prueba de la aplicacion terminada.
+12.- Colocar un while en el main de la versión de consola para poder crear un menú interactivo. 
