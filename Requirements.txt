@@ -6,5 +6,7 @@ pdfminer.six==20250506
 sentence-transformers==4.1.0
 os
 re
-
+# Interfaz Gráfica
+pyqt6
+pypqt6-tools
 
