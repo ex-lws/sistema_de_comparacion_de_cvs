@@ -152,7 +152,7 @@ def obtener_perfil_por_id(id):
         return None
     
 # Seleccionar un perfil y guardarlo en una variable por medio de un select from id (Requiere de recabar el ID)
-def verResultados():
+def verResultadosTabla():
     conexion = sqlite3.connect(RUTA_BD)
     cursor = conexion.cursor()
     cursor.execute("SELECT * FROM Resultados")
@@ -160,7 +160,8 @@ def verResultados():
     conexion.close()
     
     if perfil:
-        return perfil
+        for resultado in perfil:
+            print(resultado)
     else:
         print(f"No se encontró ningún resultado.")
         return None
