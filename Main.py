@@ -65,19 +65,17 @@ def main():
         crearBD()
         crearTabla()
         crearTablaResultados()
-        print("\n--- AGREGAR PERFIl ---")
-        print("1. Agregar perfil")
-        print("2. Realizar Comparacion")
-        print("3. Ver Perfiles")
-        print("4. Editar Perfiles")
-        print("5. Eliminar Perfiles")
-        print("6. Subir Curriculums")
-        print("7. Seleccionar perfil-")
-        print("8. Consultar Resultados")
-        print("9. Salir")
-
-
-        seleccionUsuario = int(input("Selecciona una opción: "))
+        print("\n--- SISTEMA DE COMPARACIÓN DE CVS Y PERFILES DE TRABAJO ---")
+        print("\nOpciones disponibles: ")
+        print("1. Agregar un perfil")
+        print("2. Realizar una comparación")
+        print("3. Mostrar perfiles dados de alta")
+        print("4. Editar perfiles")
+        print("5. Eliminar perfiles")
+        print("6. Subir curriculums")
+        print("7. Consultar resultados")
+        print("8. Salir")
+        seleccionUsuario = int(input("\nSelecciona una opción: "))
 
         if seleccionUsuario == 1:
             print('--- Perfil agregado ---')
@@ -125,12 +123,12 @@ def main():
             else:
                 print("No se pudo eliminar el perfil, ID no válido.")
         elif seleccionUsuario == 6:
-            print('--- Subir Curriculums---')
+            print('--- Subir Curriculums ---')
         elif seleccionUsuario == 7:
             print("Consultar Resultados...")
             verResultadosTabla()
         elif seleccionUsuario == 8:
-            print('--- Saliendo del Programa---')
+            print('--- Saliendo del Programa ---')
             break
         else:
             print("Opción no válida, por favor intenta de nuevo.")
