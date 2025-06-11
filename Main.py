@@ -19,6 +19,7 @@ from src_old.RealizarComparacion import *
 from src_old.AccionesCurriculum import *
 from src_old.SeleccionarPerfil import *
 from src_old.GenerarResumen import *
+from src_old.EliminarPerfiles import recabarIdParaEliminarPerfil
 
 # Variables globales
 # Ruta de la carpeta de curriculums temporales
@@ -32,14 +33,12 @@ def main():
 
     # 1.- Crear si no existe ya la base de datos y sus tablas.
     #verPerfiles()
+
+
     '''
-    crearBD()
-    crearTabla()
-    crearTablaResultados()
     verPerfiles()
     parametros = recabarDatos()
     insertarPerfil(parametros)
-    '''
     verPerfiles()
     texto = extraerTexto(rutaCarpetaCurriculumsTemporales)
     limpiar_texto(texto)
@@ -49,7 +48,6 @@ def main():
     print(perfil)
     print ("Mostrar resultados de la comparación...")
     resultadosComparacion = comparar_curriculums(diccionarioTrasLimpieza, perfil["nombrePerfil"])
-    # Tras la comparación se puede ingestar si existe la variable en la tabla resultados.
     mostrarResultadosTrasComparacion(resultadosComparacion)
     moverCurriculumsTemporalesADefinitivos(resultadosComparacion, rutaCarpetaCurriculumsTemporales, rutaCarpetaCurriculumsDefinitivos)
     print ("Los CVS temporales han sido movidos a la carpeta definitiva.")
@@ -57,7 +55,83 @@ def main():
     resultadosComparacion,
     rutaCarpetaCurriculumsDefinitivos,
     perfil,
-    RUTA_BD  # o el path a tu base de datos
+    RUTA_BD
     )
-    verResultadosTabla()
+    '''
+
+    seleccionUsuario = 0
+
+    while (seleccionUsuario != 7):
+        crearBD()
+        crearTabla()
+        crearTablaResultados()
+        print("\n--- AGREGAR PERFIl ---")
+        print("1. Agregar perfil")
+        print("2. Realizar Comparacion")
+        print("3. Ver Perfiles")
+        print("4. Editar Perfiles")
+        print("5. Eliminar Perfiles")
+        print("6. Subir Curriculums")
+        print("7. Seleccionar perfil-")
+        print("8. Consultar Resultados")
+        print("9. Salir")
+
+
+        seleccionUsuario = int(input("Selecciona una opción: "))
+
+        if seleccionUsuario == 1:
+            print('--- Perfil agregado ---')
+            parametros = recabarDatos()
+            insertarPerfil(parametros)
+        elif seleccionUsuario == 2:
+            verPerfiles()
+            texto = extraerTexto(rutaCarpetaCurriculumsTemporales)
+            limpiar_texto(texto)
+            diccionarioTrasLimpieza = generar_diccionario_textos(rutaCarpetaCurriculumsTemporales)
+            idPerfil = recabarIdParaSeleccionarPerfil() 
+            perfil = obtener_perfil_por_id(idPerfil)
+            print(perfil)
+            print ("Mostrar resultados de la comparación...")
+            resultadosComparacion = comparar_curriculums(diccionarioTrasLimpieza, perfil["nombrePerfil"])
+            mostrarResultadosTrasComparacion(resultadosComparacion)
+            moverCurriculumsTemporalesADefinitivos(resultadosComparacion, rutaCarpetaCurriculumsTemporales, rutaCarpetaCurriculumsDefinitivos)
+            print ("Los CVS temporales han sido movidos a la carpeta definitiva.")
+            insertar_resultados_comparacion(
+            resultadosComparacion,
+            rutaCarpetaCurriculumsDefinitivos,
+            perfil,
+            RUTA_BD
+            )
+        elif seleccionUsuario == 3:
+            print('--- Mostrando los perfiles registrados ---')
+            verPerfiles()
+        elif seleccionUsuario == 4:
+            print('--- Editar Perfiles ---')
+            print("Selecciona el ID del perfil que deseas editar:")
+            verPerfiles()
+            idPerfil = recabarIdParaEditarPerfil()
+            if idPerfil is not None:
+                parametros = recabarDatos()
+                modificarPerfil(idPerfil, parametros)
+            else:
+                print("No se pudo editar el perfil, ID no válido.")
+        elif seleccionUsuario == 5:
+            print('--- Eliminar Perfiles ---')
+            print("Selecciona el ID del perfil que deseas eliminar:")
+            verPerfiles()
+            idPerfil = recabarIdParaEliminarPerfil()
+            if idPerfil is not None:
+                eliminarPerfil(idPerfil)
+            else:
+                print("No se pudo eliminar el perfil, ID no válido.")
+        elif seleccionUsuario == 6:
+            print('--- Subir Curriculums---')
+        elif seleccionUsuario == 7:
+            print("Consultar Resultados...")
+            verResultadosTabla()
+        elif seleccionUsuario == 8:
+            print('--- Saliendo del Programa---')
+            break
+        else:
+            print("Opción no válida, por favor intenta de nuevo.")
 main()

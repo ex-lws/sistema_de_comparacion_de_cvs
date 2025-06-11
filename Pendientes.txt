@@ -7,3 +7,4 @@
 10.- Creacion del ejecutable.
 11.- Prueba de la aplicacion terminada.
 12.- Colocar un while en el main de la versión de consola para poder crear un menú interactivo. 
+13.- Creacion del metodo para subir los curriculums a la carpeta de cvs temporales.

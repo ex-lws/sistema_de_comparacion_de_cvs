@@ -19,7 +19,7 @@ def crearBD():
     RUTA_BD.parent.mkdir(exist_ok=True)
     # Conectar a la base de datos (se crea si no existe)
     conexion = sqlite3.connect(RUTA_BD)
-    print("Base de datos creada o ya existe.")
+    #print("Base de datos creada o ya existe.")
     conexion.close()
 
 def crearTabla():
@@ -47,7 +47,7 @@ def crearTabla():
             anosExperiencia INTEGER NOT NULL
         )
     ''')
-    print ("Tabla 'Perfiles' creada o ya existe.")
+    #print ("Tabla 'Perfiles' creada o ya existe.")
     # Guardar los cambios y cerrar la conexión
     conexion.commit()
     conexion.close()
@@ -71,7 +71,7 @@ def crearTablaResultados():
             FOREIGN KEY (idPerfil) REFERENCES Perfiles(id)
         )
     ''')
-    print ("Tabla 'Resultados' creada o ya existe.")
+    #print ("Tabla 'Resultados' creada o ya existe.")
     # Guardar los cambios y cerrar la conexión
     conexion.commit()
     conexion.close()
