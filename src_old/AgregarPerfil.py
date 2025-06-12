@@ -19,26 +19,30 @@ def recabarDatos():
 
     # Tipo de contratación
     seleccion_1 = input("Seleccione el tipo de contratacion: \
-                        \n1.- Tiempo indeterminado, 2.- Becario, 3.- Por proyecto.")
+                        \n1.- Tiempo indeterminado, 2.- Becario, 3.- Por proyecto, 4.- No aplica.")
 
     if seleccion_1 == "1":
         tipoContratacion = "Tiempo Indeterminado"  
     elif seleccion_1 == "2":
         tipoContratacion = "Becario"
     elif seleccion_1 == "3":
-        tipoContratacion = "Por Proyecto"   
+        tipoContratacion = "Por Proyecto"
+    elif seleccion_1 == "4":
+        tipoContratacion = "No aplica"   
     else:
         print("Opción no válida. Por favor, seleccione una opción válida.")
         
 
     # Horario de trabajo
     seleccion_2 = input("Ingrese el horario de trabajo: \
-                        \n1.- Tiempo completo, 2.- Medio tiempo.")
+                        \n1.- Tiempo completo, 2.- Medio tiempo, 3.- Por honorarios.")
 
     if seleccion_2 == "1":
         horarioTrabajo = "Tiempo Completo"
     elif seleccion_2 == "2":
         horarioTrabajo = "Medio Tiempo"
+    elif seleccion_2 == "3":
+        horarioTrabajo = "Por honorarios"
     else:
         print("Opcion no valida. Por favor, seleccione una opción válida.")
         
@@ -238,7 +242,7 @@ def recabarDatos():
         
 
     # Idioma (Solo idiomas comunes aparte del español)
-    seleccion_9 = input("Ingresa el idioma: \n1.- Ingles, 2.- Frances, 3.- Portugues, 4.- Italiano, 5.- Aleman")
+    seleccion_9 = input("Ingresa el idioma: \n1.- Ingles, 2.- Frances, 3.- Portugues, 4.- Italiano, 5.- Aleman, 6.- No aplica.")
     if seleccion_9 == "1":
         idioma = "Ingles"
     elif seleccion_9 == "2":
@@ -249,19 +253,23 @@ def recabarDatos():
         idioma = "Italiano"
     elif seleccion_9 == "5":
         idioma = "Aleman"
+    elif seleccion_9 == "6":
+        idioma = "No aplica"
     else:
         print("Opcion no valida. Por favor, seleccione una opción válida.")
         
 
     # Nivel de idioma
     seleccion_10 = input("Ingrese el nivel de idioma: \
-                            \n1.- Basico, 2.- Intermedio, 3.- Avanzado.")
+                            \n1.- Basico, 2.- Intermedio, 3.- Avanzado, 4.- No aplica.")
     if seleccion_10 == "1":
         nivelIdioma = "Basico"
     elif seleccion_10 == "2":
         nivelIdioma = "Intermedio"
     elif seleccion_10 == "3":
         nivelIdioma = "Avanzado"
+    elif seleccion_10 == "4":
+        nivelIdioma = "No aplica"
     else:
         print("Opcion no valida. Por favor, seleccione una opción válida.")
         
