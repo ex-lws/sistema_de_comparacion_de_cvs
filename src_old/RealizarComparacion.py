@@ -29,7 +29,7 @@ def comparar_curriculums(curriculums, perfilEncontrado):
         similitud = similitud_tensor[0][0].item()  # Extrae el valor escalar
         similitud_normalizada = (similitud + 1) / 2
         porcentaje_num = round(similitud_normalizada * 100, 2)
-        if porcentaje_num > 20.0:
+        if porcentaje_num >= 80.0:
             resultados[nombre] = f"{porcentaje_num} %"
     return resultados
 
