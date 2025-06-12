@@ -63,7 +63,7 @@ def recabarDatos():
 
     # Salario minmo 
     seleccion_4 = float(input("Ingrese el salario minimo:"))
-    if seleccion_4 > 0:
+    if seleccion_4 >= 0:
         sueldoMensualMinimo = seleccion_4
     else:
         print("Opcion no valida. Por favor, seleccione una opción válida.")
@@ -71,7 +71,7 @@ def recabarDatos():
 
     # Salario maximo
     seleccion_5 = float(input("Ingrese el salario maximo:"))
-    if seleccion_5 > 0 and seleccion_5 <= 10000000:
+    if seleccion_5 >= 0 and seleccion_5 <= 10000000000:
         sueldoMensualMaximo = seleccion_5
     else:
         print("Opcion no valida. Por favor, seleccione una opción válida.")
