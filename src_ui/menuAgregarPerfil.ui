@@ -409,7 +409,7 @@
      </property>
     </item>
    </widget>
-   <widget class="QLineEdit" name="comboBoxExperiencia">
+   <widget class="QLineEdit" name="lineEditExperiencia">
     <property name="geometry">
      <rect>
       <x>390</x>
@@ -613,6 +613,19 @@
       <string>Guanajuato</string>
      </property>
     </item>
+   </widget>
+   <widget class="QLabel" name="labelVolverInicio">
+    <property name="geometry">
+     <rect>
+      <x>1470</x>
+      <y>20</y>
+      <width>321</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

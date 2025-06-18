@@ -3,8 +3,10 @@ import sys
 from PyQt6 import QtWidgets, uic
 from PyQt6.QtCore import Qt
 
+
 class VentanaMenuPrincipal(QtWidgets.QMainWindow):
-    def __init__(self):
+    def __init__(self, parent):
+        self.parent = parent
         super().__init__()
         uic.loadUi('src_ui/menuPrincipal.ui', self)
         self.configurar_label_clickeable()
@@ -23,5 +25,5 @@ class VentanaMenuPrincipal(QtWidgets.QMainWindow):
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    ventanaMenuPrincipal = VentanaMenuPrincipal()
+    ventanaMenuPrincipal = VentanaMenuPrincipal(None)  # Pasamos None como parent inicial
     sys.exit(app.exec())
