@@ -1,10 +1,8 @@
-4.- Metodo para limpiar los archivos de carpeta temporal y definitiva cada 10 dias.
-5.- Metodo para limpiar todo lo que contiene la base de datos cada 10 dias.
+4.- Metodo para limpiar los archivos de carpeta temporal y definitiva en src old.
+5.- Metodo para limpiar todo lo que contiene la base de datos en src old.
 6.- Prueba de testing de los metodos.
 7.- Mejora del codigo base.
-8.- Creacion de la interfaz grafica.
 9.- Pruebas de usuario.
 10.- Creacion del ejecutable.
-11.- Prueba de la aplicacion terminada.
-12.- Colocar un while en el main de la versión de consola para poder crear un menú interactivo. 
-13.- Creacion del metodo para subir los curriculums a la carpeta de cvs temporales.
+13.- Creacion del metodo para subir los curriculums a la carpeta de cvs temporales en src old.
+14.- Agregar las funcionalidades a todas las ventanas del label de configuracion, que debe de abrir dicha ventana. (Requiere la ventana de configuracion hecha y sus métodos funcionales)

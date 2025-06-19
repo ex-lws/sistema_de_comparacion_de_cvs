@@ -9,4 +9,5 @@ re
 # Interfaz Gráfica
 pyqt6
 pypqt6-tools
-
+pip install PyQt5-sql
+pip install PyQt6-sql

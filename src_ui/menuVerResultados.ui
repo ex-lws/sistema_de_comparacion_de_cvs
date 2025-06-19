@@ -93,10 +93,10 @@
    <widget class="QTableView" name="tableViewVerResultados">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>160</y>
-      <width>1691</width>
-      <height>641</height>
+      <x>20</x>
+      <y>260</y>
+      <width>1861</width>
+      <height>551</height>
      </rect>
     </property>
    </widget>

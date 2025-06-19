@@ -39,10 +39,10 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>menuAgregarPerfilFIgma.png</pixmap>
+     <pixmap>menuAgregarPerfilFigma.png</pixmap>
     </property>
    </widget>
-   <widget class="QLabel" name="labelInicio">
+   <widget class="QLabel" name="labelConfiguracion">
     <property name="geometry">
      <rect>
       <x>390</x>

@@ -66,6 +66,7 @@ def main():
         crearTabla()
         crearTablaResultados()
         print("\n--- SISTEMA DE COMPARACIÓN DE CVS Y PERFILES DE TRABAJO ---")
+        print("\n***Favor de tener dentro de la carpeta cvsTemporales los curriculums que se desean comparar.***")
         print("\nOpciones disponibles: ")
         print("1. Agregar un perfil")
         print("2. Realizar una comparación")
@@ -74,7 +75,9 @@ def main():
         print("5. Eliminar perfiles")
         print("6. Subir curriculums")
         print("7. Consultar resultados")
-        print("8. Salir")
+        print("8. Borrar todos los curriculums")
+        print("9. Borrar todos los datos")
+        print("10. Salir")
         seleccionUsuario = int(input("\nSelecciona una opción: "))
 
         if seleccionUsuario == 1:
@@ -128,6 +131,12 @@ def main():
             print("Consultar Resultados...")
             verResultadosTabla()
         elif seleccionUsuario == 8:
+            print('--- Borrar todos los curriculums ---')
+            borrar_todos_los_archivos(rutaCarpetaCurriculumsTemporales)
+        elif seleccionUsuario == 9:
+            print('--- Borrar todos los datos ---')
+            borrarBD()
+        elif seleccionUsuario == 10:
             print('--- Saliendo del Programa ---')
             break
         else:

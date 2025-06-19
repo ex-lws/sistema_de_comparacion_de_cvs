@@ -16,6 +16,7 @@ class VentanaMenuAgregarPerfil(QtWidgets.QMainWindow):
         self.labelVolverInicio.setCursor(Qt.CursorShape.PointingHandCursor)
         self.labelVolverInicio.mousePressEvent = self.abrir_ventana_menu_principal
         self.labelAgregarPerfil.mousePressEvent = self.insertar
+        self.labelConfiguracion.mousePressEvent = self.abrir_ventana_menu_configuracion
     
     def abrir_ventana_menu_principal(self, event):
         from menuPrincipal import VentanaMenuPrincipal
@@ -23,6 +24,13 @@ class VentanaMenuAgregarPerfil(QtWidgets.QMainWindow):
         self.ventana_menu = VentanaMenuPrincipal(self)  # Pasamos self como parent
         self.ventana_menu.show()
         self.hide()  # Ocultamos la ventana principal
+
+    def abrir_ventana_menu_configuracion(self, event):
+        from menuConfiguracion import VentanaMenuConfiguracion
+        
+        self.ventana_menu = VentanaMenuConfiguracion(self)
+        self.ventana_menu.show()
+        self.hide()
     
     def recabarDatos(self):#Obtener valores de los elementos
         nombrePerfil = self.lineEditNombrePerfil.text().strip()

@@ -22,6 +22,18 @@ def crearBD():
     #print("Base de datos creada o ya existe.")
     conexion.close()
 
+def borrarBD():
+    import sqlite3
+    # Eliminar la base de datos si existe
+    conexion = sqlite3.connect(RUTA_BD)
+    conexion.execute("PRAGMA foreign_keys = ON")  # Activa llaves foráneas
+    cursor = conexion.cursor()
+    # Ejecutar el comando para eliminar las tablas por separado
+    cursor.execute('DROP TABLE IF EXISTS Perfiles;')
+    cursor.execute('DROP TABLE IF EXISTS Resultados;')
+    conexion.commit()
+    conexion.close()
+
 def crearTabla():
     # Crear un cursor para ejecutar comandos SQL
     conexion = sqlite3.connect(RUTA_BD)

@@ -93,11 +93,14 @@
    <widget class="QTableView" name="tableViewVerPerfiles">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>160</y>
-      <width>1691</width>
-      <height>641</height>
+      <x>10</x>
+      <y>150</y>
+      <width>1881</width>
+      <height>651</height>
      </rect>
+    </property>
+    <property name="sortingEnabled">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>

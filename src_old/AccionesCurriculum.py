@@ -91,5 +91,21 @@ def moverCurriculumsTemporalesADefinitivos(diccionario_resultados, rutaCarpetaCu
         else:
             print(f"No encontrado: {ruta_origen}")
 
+def borrar_todos_los_archivos(ruta_carpeta):
+    """
+    Borra todos los archivos de la carpeta especificada.
+    """
+    if os.path.exists(ruta_carpeta):
+        for archivo in os.listdir(ruta_carpeta):
+            ruta_archivo = os.path.join(ruta_carpeta, archivo)
+            if os.path.isfile(ruta_archivo):
+                try:
+                    os.remove(ruta_archivo)
+                    print(f"Borrado: {ruta_archivo}")
+                except Exception as e:
+                    print(f"Error al borrar {ruta_archivo}: {e}")
+    else:
+        print(f"La carpeta {ruta_carpeta} no existe.")
 
 
+    
