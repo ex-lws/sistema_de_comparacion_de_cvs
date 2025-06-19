@@ -23,7 +23,7 @@ from src_old.EliminarPerfiles import recabarIdParaEliminarPerfil
 
 # Variables globales
 # Ruta de la carpeta de curriculums temporales
-rutaCarpetaCurriculumsTemporales = "cvsTermporales"  # Cambia por tu ruta real
+rutaCarpetaCurriculumsTemporales = "cvsTemporales"  # Cambia por tu ruta real
 rutaCarpetaCurriculumsDefinitivos = "cvsDefinitivos"  # Cambia por tu ruta real
 
 
