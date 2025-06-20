@@ -46,14 +46,18 @@ class VentanaMenuAgregarPerfil(QtWidgets.QMainWindow):
         Idioma = self.comboBoxIdioma.currentText().strip()
         Nivelidioma = self.comboBoxNivelIdioma.currentText().strip()
         Licenciaconducir = self.comboBoxLicenciaConducir.currentText().strip()
-        Anosexperiencia = self.lineEditExperiencia.text().strip()
+        # Cambiar por combo box
+        Anosexperiencia = self.comboBoxAnosExperiencia.currentText().strip()
 
         return (nombrePerfil, Tipocontratación, Horariotrabajo, Modalidadtrabajo, Salariominimo, Salariomaximo, Escolaridad, Areatrabajo, Puesto, Ubicación, Idioma, Nivelidioma, Licenciaconducir, Anosexperiencia)
 
     def insertar(self, *args):
         parametros = self.recabarDatos()
-        insertarPerfil(parametros)
-        QMessageBox.information(self, "Éxito", "Perfil guardado exitosamente")
+        if parametros:
+            insertarPerfil(parametros)
+            QMessageBox.information(self, "Éxito", "Perfil guardado exitosamente")
+        elif parametros is None:
+            QMessageBox.warning(self, "Error", "Por favor, complete todos los campos antes de guardar el perfil.")
     
     
 if __name__ == '__main__':

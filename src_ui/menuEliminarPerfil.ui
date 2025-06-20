@@ -84,7 +84,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QTableView" name="tableViewPerfiles">
+   <widget class="QTableView" name="tableViewVerPerfiles">
     <property name="geometry">
      <rect>
       <x>100</x>

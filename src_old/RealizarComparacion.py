@@ -15,6 +15,8 @@ import os
 
 # Carga el modelo MiniLM-L6-v2
 modelo = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+# Limite del porcentaje de similitud para mostrar  e ingestar al diccionario resultados.
+porcentajeSimulitd = 40
 
 def comparar_curriculums(curriculums, perfilEncontrado):
     """
@@ -29,7 +31,7 @@ def comparar_curriculums(curriculums, perfilEncontrado):
         similitud = similitud_tensor[0][0].item()  # Extrae el valor escalar
         similitud_normalizada = (similitud + 1) / 2
         porcentaje_num = round(similitud_normalizada * 100, 2)
-        if porcentaje_num >= 60.0:
+        if porcentaje_num >= porcentajeSimulitd:
             resultados[nombre] = f"{porcentaje_num} %"
     return resultados
 

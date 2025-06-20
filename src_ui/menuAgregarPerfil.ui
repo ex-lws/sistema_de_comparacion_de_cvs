@@ -103,6 +103,15 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="inputMask">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string notr="true">Nombre del perfil por defecto</string>
+    </property>
+    <property name="placeholderText">
+     <string/>
+    </property>
    </widget>
    <widget class="QComboBox" name="comboBoxTipoContratacion">
     <property name="geometry">
@@ -193,6 +202,9 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="text">
+     <string>0.0</string>
+    </property>
    </widget>
    <widget class="QLineEdit" name="lineEditSalarioMaximo">
     <property name="geometry">
@@ -202,6 +214,9 @@
       <width>301</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="text">
+     <string>0.0</string>
     </property>
    </widget>
    <widget class="QComboBox" name="comboBoxAreaTrabajo">
@@ -338,6 +353,12 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="inputMask">
+     <string/>
+    </property>
+    <property name="text">
+     <string>Puesto de trabajo por defecto</string>
+    </property>
    </widget>
    <widget class="QComboBox" name="comboBoxIdioma">
     <property name="geometry">
@@ -408,16 +429,6 @@
       <string>No aplica</string>
      </property>
     </item>
-   </widget>
-   <widget class="QLineEdit" name="lineEditExperiencia">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>510</y>
-      <width>301</width>
-      <height>41</height>
-     </rect>
-    </property>
    </widget>
    <widget class="QComboBox" name="comboBoxEscolaridad">
     <property name="geometry">
@@ -626,6 +637,71 @@
     <property name="text">
      <string/>
     </property>
+   </widget>
+   <widget class="QComboBox" name="comboBoxAnosExperiencia">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>510</y>
+      <width>301</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>3</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>6</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>9</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>12</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>15</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>18</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>21</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>24</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>27</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>30</string>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

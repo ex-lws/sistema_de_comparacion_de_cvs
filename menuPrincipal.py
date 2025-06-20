@@ -7,7 +7,7 @@ from PyQt6.QtWidgets import QFileDialog, QApplication
 import shutil
 import os
 import sys
-
+from PyQt6.QtWidgets import QFileDialog, QMessageBox, QApplication
 
 class VentanaMenuPrincipal(QtWidgets.QMainWindow):
     def __init__(self, parent):
@@ -34,6 +34,7 @@ class VentanaMenuPrincipal(QtWidgets.QMainWindow):
         self.labelVerResultados.mousePressEvent = self.abrir_ventana_ver_resultados
         self.labelConfiguracion.mousePressEvent = self.abrir_ventana_menu_configuracion
         self.labelSubirCurriculum.mousePressEvent = self.seleccionar_y_subir_archivos
+        self.labelEliminarPerfiles.mousePressEvent = self.abrir_ventana_menu_eliminar_perfiles
     
     # Funciones.
     def abrir_ventana_agregar_perfil(self, event):
@@ -67,11 +68,30 @@ class VentanaMenuPrincipal(QtWidgets.QMainWindow):
     def seleccionar_y_subir_archivos(self, event):
         ruta_cvs_temporales = 'cvsTemporales'
         app = QApplication.instance() or QApplication(sys.argv)
-        archivos, _ = QFileDialog.getOpenFileNames(None, "Selecciona archivos")
+        archivos, _ = QFileDialog.getOpenFileNames(
+            self,
+            "Selecciona archivos PDF",
+            "",
+            "PDF Files (*.pdf)"
+        )
         for archivo in archivos:
             if os.path.isfile(archivo):
-                shutil.copy(archivo, ruta_cvs_temporales)
-                print(f"Archivo copiado: {archivo} -> {ruta_cvs_temporales}") 
+                if archivo.lower().endswith('.pdf'):
+                    shutil.copy(archivo, ruta_cvs_temporales)
+                    print(f"Archivo copiado: {archivo} -> {ruta_cvs_temporales}")
+                else:
+                    QMessageBox.warning(
+                        self,
+                        "Archivo inválido",
+                        f"El archivo '{os.path.basename(archivo)}' no es un PDF. Solo se permiten archivos .pdf."
+                    )
+
+    def abrir_ventana_menu_eliminar_perfiles(self, event):
+        from menuEliminarPerfiles import VentanaMenuEliminarPefiles
+        
+        self.ventana_menu = VentanaMenuEliminarPefiles(self)
+        self.ventana_menu.show()
+        self.hide() 
         
 
 if __name__ == '__main__':

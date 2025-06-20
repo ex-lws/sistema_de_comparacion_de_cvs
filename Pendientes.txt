@@ -1,8 +1,9 @@
-4.- Metodo para limpiar los archivos de carpeta temporal y definitiva en src old.
-5.- Metodo para limpiar todo lo que contiene la base de datos en src old.
-6.- Prueba de testing de los metodos.
-7.- Mejora del codigo base.
-9.- Pruebas de usuario.
-10.- Creacion del ejecutable.
-13.- Creacion del metodo para subir los curriculums a la carpeta de cvs temporales en src old.
-14.- Agregar las funcionalidades a todas las ventanas del label de configuracion, que debe de abrir dicha ventana. (Requiere la ventana de configuracion hecha y sus métodos funcionales)
+Prueba de testing de los metodos.
+Mejora del codigo base.
+Pruebas de usuario.
+Creacion del ejecutable.
+En la ventana de agregar perfiles, no debería agregar campos en dado caso de registros nulos. Todos los datos son mandatorios. Arreglar. Si algun campo input no está mandar un Qdialog.
+En la ventana de configuracion, vincular el método para actualizar la variable del porcentaje de similitud y mostrar un Qdialog.
+Falta la ventana de editar un perfil. (Copiar o basarse en las validaciones de eliminar para lo del ID)
+Falta la ventana de realizar comparación. 
+Gus debe probar en el modo consola, moviendo el Main a la carpeta raíz, que la variable de porcentaje de similitud cambie.

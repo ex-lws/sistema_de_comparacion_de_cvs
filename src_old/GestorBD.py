@@ -43,15 +43,15 @@ def crearTabla():
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS Perfiles (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            nombrePerfil TEXT NOT NULL,
+            nombrePerfil TEXT NOT NULL CHECK(nombrePerfil <> ''),
             tipoContratacion TEXT NOT NULL,
             horarioTrabajo TEXT NOT NULL,
             modalidadTrabajo TEXT NOT NULL,
-            sueldoMensualMinimo DOUBLE NOT NULL,
-            sueldoMensualMaximo DOUBLE NOT NULL,
+            sueldoMensualMinimo DOUBLE NOT NULL CHECK(salarioMensualMinimo <> ''),
+            sueldoMensualMaximo DOUBLE NOT NULL CHECK(salarioMensualMaximo <> ''),
             escolaridad TEXT NOT NULL,
             area TEXT NOT NULL,
-            puestoTrabajo TEXT NOT NULL,
+            puestoTrabajo TEXT NOT NULL CHECK(puestoTrabajo <> ''),
             ubicacion TEXT NOT NULL,
             idioma TEXT NOT NULL,
             nivelIdioma TEXT,
@@ -115,6 +115,20 @@ def insertarPerfil(parametros):
     ''', parametros)
     conexion.commit()
     conexion.close()
+
+# Buscar antes un ID en la tabla de perfiles y luego eliminarlo.
+
+def existe_id_perfil(id_buscar):
+    """
+    Verifica si el ID existe en la tabla perfiles.
+    """
+    conexion = sqlite3.connect(RUTA_BD)
+    cursor = conexion.cursor()
+    cursor.execute("SELECT 1 FROM perfiles WHERE id = ?", (id_buscar,))
+    resultado = cursor.fetchone()
+    conexion.close()
+    return resultado is not None
+
 
 # Eliminar un perfil por medio del ID. (Requiere de recoger un ID)
 def eliminarPerfil(id):
