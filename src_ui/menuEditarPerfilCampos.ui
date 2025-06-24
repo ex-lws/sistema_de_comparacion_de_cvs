@@ -58,7 +58,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="labelAgregarPerfil">
+   <widget class="QLabel" name="labelActualizarPerfil">
     <property name="geometry">
      <rect>
       <x>1470</x>
