@@ -36,6 +36,7 @@ class VentanaMenuPrincipal(QtWidgets.QMainWindow):
         self.labelSubirCurriculum.mousePressEvent = self.seleccionar_y_subir_archivos
         self.labelEliminarPerfiles.mousePressEvent = self.abrir_ventana_menu_eliminar_perfiles
         self.labelRealizarComparacion.mousePressEvent = self.abrir_ventana_menu_comparacion
+        self.labelEditarPerfiles.mousePressEvent = self.abrir_ventana_menu_actualizar_perfiles
     
     # Funciones.
     def abrir_ventana_agregar_perfil(self, event):
@@ -98,6 +99,13 @@ class VentanaMenuPrincipal(QtWidgets.QMainWindow):
         from menuComparacion import VentanaMenuComparacion
         
         self.ventana_menu = VentanaMenuComparacion(self)
+        self.ventana_menu.show()
+        self.hide()
+
+    def abrir_ventana_menu_actualizar_perfiles(self, event):
+        from menuEditarPerfil import VentanaMenuEditarPerfiles
+        
+        self.ventana_menu = VentanaMenuEditarPerfiles(self)
         self.ventana_menu.show()
         self.hide()
         

@@ -1,4 +1,4 @@
-# Ventana para eliminar perfiles
+# Ventana para poder editar los perfiles
 
 import sys
 from PyQt6 import QtWidgets, uic
@@ -8,11 +8,8 @@ from src_old.GestorBD import *
 from PyQt6.QtSql import QSqlDatabase, QSqlTableModel
 from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QHeaderView
-from src_old.GestorBD import *
-from PyQt6 import uic
-from PyQt6.QtWidgets import QDialog
 
-class VentanaMenuActualizarPefiles(QtWidgets.QMainWindow):
+class VentanaMenuEditarPerfiles(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)  # Pasamos el parent al constructor.
         uic.loadUi('src_ui/menuEditarPerfil.ui', self)
@@ -28,14 +25,13 @@ class VentanaMenuActualizarPefiles(QtWidgets.QMainWindow):
         self.labelVolverInicio.mousePressEvent = self.abrir_ventana_menu_principal
         self.tableViewVerPerfiles.setModel(self.model)
         self.labelConfiguracion.mousePressEvent = self.abrir_ventana_menu_configuracion
-        self.labelRealizarEdicion.mousePressEvent = self.actualizar_perfil
     
     def abrir_ventana_menu_principal(self, event):
         # Importamos la ventana del menú principal y la mostramos para esta función.
-        from menuEditarPerfilCampos import VentanaMenuEditarPerfilCampos
-        self.ventana_ver = VentanaMenuEditarPerfilCampos(self)
-        self.ventana_ver.show()
-        #self.hide()  # Ocultamos la ventana principal
+        from menuPrincipal import VentanaMenuPrincipal
+        self.ventana_menu = VentanaMenuPrincipal(self)  # Pasamos self como parent
+        self.ventana_menu.show()
+        self.hide()  # Ocultamos la ventana principal
 
     def abrir_ventana_menu_configuracion(self, event):
         from menuConfiguracion import VentanaMenuConfiguracion
@@ -80,16 +76,12 @@ class VentanaMenuActualizarPefiles(QtWidgets.QMainWindow):
         font.setBold(True)
         self.tableViewVerPerfiles.horizontalHeader().setFont(font)
 
-        # Hacer que los encabezados ocupen todo el ancho del tableView35
+        # Hacer que los encabezados ocupen todo el ancho del tableView
         header = self.tableViewVerPerfiles.horizontalHeader()
         header.setSectionResizeMode(QHeaderView.ResizeMode.Stretch)
-
-    def actualizar_perfil(self, *args):
-        print("Actualizando perfil...")
-        
-
+    
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    ventana = VentanaMenuActualizarPefiles()
+    ventana = VentanaMenuEditarPerfiles()
     sys.exit(app.exec())

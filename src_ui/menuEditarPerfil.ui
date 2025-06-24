@@ -74,22 +74,12 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEditIdPerfilEditar">
-    <property name="geometry">
-     <rect>
-      <x>880</x>
-      <y>740</y>
-      <width>181</width>
-      <height>61</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QTableView" name="tableViewVerPerfiles">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>150</y>
-      <width>1691</width>
+      <x>20</x>
+      <y>270</y>
+      <width>1861</width>
       <height>551</height>
      </rect>
     </property>

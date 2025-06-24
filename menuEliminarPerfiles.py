@@ -52,6 +52,7 @@ class VentanaMenuEliminarPefiles(QtWidgets.QMainWindow):
         self.model = QSqlTableModel(self)
         self.model.setTable('perfiles')
         self.model.select()
+        self.model.setEditStrategy(QSqlTableModel.EditStrategy.OnManualSubmit)  # No permite edición directa
         # Renombrar los headers o encabezados.
         self.model.setHeaderData(0, Qt.Orientation.Horizontal, "ID")
         self.model.setHeaderData(1, Qt.Orientation.Horizontal, "Nombre del perfil")
@@ -72,6 +73,7 @@ class VentanaMenuEliminarPefiles(QtWidgets.QMainWindow):
     def personalizar_tableview(self):
         # Ocultar la columna de enumeración (vertical header)
         self.tableViewVerPerfiles.verticalHeader().setVisible(False)
+        self.tableViewVerPerfiles.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
         
         # Poner en negrita los encabezados de columna
         font = QFont()

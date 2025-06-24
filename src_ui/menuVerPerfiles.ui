@@ -42,22 +42,6 @@
      <pixmap>menuVerPerfilFigma.png</pixmap>
     </property>
    </widget>
-   <widget class="QLabel" name="labelRealizarEliminacion">
-    <property name="geometry">
-     <rect>
-      <x>1080</x>
-      <y>730</y>
-      <width>301</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:transparent;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QLabel" name="labelVolverInicio">
     <property name="geometry">
      <rect>
@@ -95,7 +79,7 @@
      <rect>
       <x>10</x>
       <y>150</y>
-      <width>1881</width>
+      <width>1871</width>
       <height>651</height>
      </rect>
     </property>

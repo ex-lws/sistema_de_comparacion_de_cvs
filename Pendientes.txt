@@ -2,6 +2,5 @@ Prueba de testing de los metodos.
 Mejora del codigo base.
 Pruebas de usuario.
 Creacion del ejecutable.
-Falta la ventana de editar un perfil. (Copiar o basarse en las validaciones de eliminar para lo del ID)
-En todos los widgets tableView agregar los scrolls verticales y horizontales.
 En la vetana de comparación crear un método que no permita comparar si es que no hay cvs en la carpeta cvs temporales.
+Luis crear el readme orientado a la presentacion de github.
