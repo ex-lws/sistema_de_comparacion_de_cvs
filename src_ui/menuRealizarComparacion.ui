@@ -115,6 +115,12 @@
       <height>541</height>
      </rect>
     </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOn</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOn</enum>
+    </property>
    </widget>
    <widget class="QLineEdit" name="lineEditIdPerfilComparar">
     <property name="geometry">
@@ -126,6 +132,13 @@
      </rect>
     </property>
    </widget>
+   <zorder>labelFondoMenuRealizarComparacion</zorder>
+   <zorder>labelRealizarEliminacion</zorder>
+   <zorder>labelVolverInicio</zorder>
+   <zorder>labelConfiguracion</zorder>
+   <zorder>labelRealizarComparacion</zorder>
+   <zorder>lineEditIdPerfilComparar</zorder>
+   <zorder>tableViewVerPerfiles</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

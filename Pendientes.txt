@@ -2,8 +2,8 @@ Prueba de testing de los metodos.
 Mejora del codigo base.
 Pruebas de usuario.
 Creacion del ejecutable.
-En la ventana de agregar perfiles, no debería agregar campos en dado caso de registros nulos. Todos los datos son mandatorios. Arreglar. Si algun campo input no está mandar un Qdialog.
 En la ventana de configuracion, vincular el método para actualizar la variable del porcentaje de similitud y mostrar un Qdialog.
 Falta la ventana de editar un perfil. (Copiar o basarse en las validaciones de eliminar para lo del ID)
-Falta la ventana de realizar comparación. 
 Gus debe probar en el modo consola, moviendo el Main a la carpeta raíz, que la variable de porcentaje de similitud cambie.
+En todos los widgets tableView agregar los scrolls verticales y horizontales.
+En la vetana de comparación crear un método que no permita comparar si es que no hay cvs en la carpeta cvs temporales.
