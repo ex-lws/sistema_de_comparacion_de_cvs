@@ -3,15 +3,11 @@
 # Los datos se guardan en variables tipo String de Python.
 
 # VERSIÓN:
-# Versión 1.5 del código. 05/06/2025.
+# Versión 1.5 del código. 25/06/2025.
 
-# Importar las librerías necesarias
-
-from src_old.GestorBD import *
-
+# Recabar datos
+# Variables y solicitudes por medio de consola. Al final retorna una tupla con todos los datos recabados para su posterior uso.
 def recabarDatos():
-    # Recabar datos
-    # Variables y solicitudes por medio de consola.
 
     # Nombre del perfil
 

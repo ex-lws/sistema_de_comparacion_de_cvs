@@ -7,7 +7,7 @@ from PyQt6.QtWidgets import QMessageBox
 from src_old.GestorBD import *
 from src_old.RealizarComparacion import *
 from src_old.AccionesCurriculum import *
-from src_old.SeleccionarPerfil import *
+from src_old.SeleccionarPerfilParaComparar import *
 from src_old.GenerarResumen import *
 from PyQt6.QtSql import QSqlDatabase, QSqlTableModel
 from PyQt6.QtGui import QFont

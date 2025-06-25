@@ -74,11 +74,12 @@ class VentanaMenuVerResultados(QtWidgets.QMainWindow):
         self.model = QSqlTableModel(self)
         self.model.setTable('resultados')
         self.model.select()
+        self.model.setEditStrategy(QSqlTableModel.EditStrategy.OnManualSubmit)  # No permite edición directa
         # Renombrar los headers o encabezados.
         self.model.setHeaderData(0, Qt.Orientation.Horizontal, "ID")
         self.model.setHeaderData(1, Qt.Orientation.Horizontal, "Nombre del candidato")
         self.model.setHeaderData(2, Qt.Orientation.Horizontal, "Similitud")
-        self.model.setHeaderData(3, Qt.Orientation.Horizontal, "Puesto de trabajo")
+        self.model.setHeaderData(3, Qt.Orientation.Horizontal, "Puesto deseado")
         self.model.setHeaderData(4, Qt.Orientation.Horizontal, "Resumen")
         self.model.setHeaderData(5, Qt.Orientation.Horizontal, "Curriculum")
         self.model.setHeaderData(6, Qt.Orientation.Horizontal, "Nombre del perfil")
@@ -95,7 +96,7 @@ class VentanaMenuVerResultados(QtWidgets.QMainWindow):
 
         # Hacer que los encabezados ocupen todo el ancho del tableView
         header = self.tableViewVerResultados.horizontalHeader()
-        header.setSectionResizeMode(QHeaderView.ResizeMode.Stretch)
+        header.setSectionResizeMode(QHeaderView.ResizeMode.ResizeToContents)
 
     def descargar_pdf(self, index):
     # Supón que la columna del BLOB es la 4 (ajusta según tu tabla)

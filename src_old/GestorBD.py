@@ -2,26 +2,25 @@
 # Este código permite realizar las diferentes acciones CRUD del sistema.
 
 # VERSIÓN:
-# Versión 1.5 del código. 05/06/2025.
+# Versión 2.1 del código. 25/06/2025.
 
 # Importar las librerías necesarias
-
 import sqlite3
 from pathlib import Path
 import os
 from src_old.GenerarResumen import *
 
-# Ruta de la base de datos en el proyecto.
+# Ruta de la base de datos en el proyecto, es una variable global.
 RUTA_BD = Path('BD/Perfiles.bd')
 
+# Crear la base de datos.
 def crearBD():
-    # Crear carpeta si no existe
+    
     RUTA_BD.parent.mkdir(exist_ok=True)
-    # Conectar a la base de datos (se crea si no existe)
     conexion = sqlite3.connect(RUTA_BD)
-    #print("Base de datos creada o ya existe.")
     conexion.close()
 
+# Borrar la base de datos.
 def borrarBD():
     import sqlite3
     # Eliminar la base de datos si existe
@@ -34,12 +33,12 @@ def borrarBD():
     conexion.commit()
     conexion.close()
 
+# Crear la tabla de los perfiles.
 def crearTabla():
-    # Crear un cursor para ejecutar comandos SQL
+
     conexion = sqlite3.connect(RUTA_BD)
-    conexion.execute("PRAGMA foreign_keys = ON")  # Activa llaves foráneas
+    conexion.execute("PRAGMA foreign_keys = ON") 
     cursor = conexion.cursor()
-    # Crear la tabla de perfiles si no existe
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS Perfiles (
             id_perfil INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -66,17 +65,15 @@ def crearTabla():
             titulacion_requerida TEXT
         )
     ''')
-    #print ("Tabla 'Perfiles' creada o ya existe.")
-    # Guardar los cambios y cerrar la conexión
     conexion.commit()
     conexion.close()
 
+# Crear la tabla de resultados.
 def crearTablaResultados():
-    # Crear un cursor para ejecutar comandos SQL
+    
     conexion = sqlite3.connect(RUTA_BD)
-    conexion.execute("PRAGMA foreign_keys = ON")  # Activa llaves foráneas
+    conexion.execute("PRAGMA foreign_keys = ON")
     cursor = conexion.cursor()
-    # Crear la tabla de perfiles si no existe
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS Resultados (
             id_resultado INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -90,12 +87,10 @@ def crearTablaResultados():
             FOREIGN KEY (id_perfil) REFERENCES Perfiles(id_perfil)
         )
     ''')
-    #print ("Tabla 'Resultados' creada o ya existe.")
-    # Guardar los cambios y cerrar la conexión
     conexion.commit()
     conexion.close()
 
-# Operaciones CRUD
+# A partir de aquí inician las operaciones CRUD del sistema.
 
 # Ver todos los perfiles
 def verPerfiles():
@@ -104,12 +99,11 @@ def verPerfiles():
     cursor.execute("SELECT * FROM Perfiles")
     perfiles = cursor.fetchall()
     print ("Perfiles registrados:")
-    # Imprimir los perfiles en consola
     for perfil in perfiles:
         print(perfil)
     conexion.close()
 
-# Insertar perfiles (Requiere de previamente recoger los datos a insertar)
+# Insertar perfiles (Requiere de previamente recoger los datos a insertar en forma de una tupla)
 def insertarPerfil(parametros):
     import sqlite3
     conexion = sqlite3.connect(RUTA_BD)
@@ -142,31 +136,30 @@ def insertarPerfil(parametros):
     conexion.commit()
     conexion.close()
 
-# Buscar antes un ID en la tabla de perfiles y luego eliminarlo.
-
-def existe_id_perfil(id_buscar):
+# Buscar un perfil por medio del ID. (Requiere de un numero entero, en este caso el ID proporcionado).
+def existe_id_perfil(id_para_buscar):
     """
     Verifica si el ID existe en la tabla perfiles.
     """
     conexion = sqlite3.connect(RUTA_BD)
     cursor = conexion.cursor()
-    cursor.execute("SELECT 1 FROM Perfiles WHERE id_perfil = ?", (id_buscar,))
+    cursor.execute("SELECT 1 FROM Perfiles WHERE id_perfil = ?", (id_para_buscar,))
     resultado = cursor.fetchone()
     conexion.close()
     return resultado is not None
 
 
-# Eliminar un perfil por medio del ID. (Requiere de recoger un ID)
-def eliminarPerfil(id):
+# Eliminar un perfil por medio del ID. (Requiere de recoger un ID en forma de numero entero).
+def eliminarPerfil(id_para_eliminar):
     conexion = sqlite3.connect(RUTA_BD)
     cursor = conexion.cursor()
-    cursor.execute("DELETE FROM Perfiles WHERE id_perfil = ?", (id,))
+    cursor.execute("DELETE FROM Perfiles WHERE id_perfil = ?", (id_para_eliminar,))
     conexion.commit()
     conexion.close()
     print(f"Perfil con ID {id} eliminado.")
 
-# Actualizar un perfil por medio del ID. (Requiere de recoger un ID y modificar parametros)
-def modificarPerfil(id_perfil, parametros):
+# Actualizar un perfil por medio del ID y por medio de parametros nuevos. (Requiere de recoger un ID y modificar parametros)
+def modificarPerfil(id_perfil_para_actualizar, parametros_nuevos):
     import sqlite3
     conexion = sqlite3.connect(RUTA_BD)
     cursor = conexion.cursor()
@@ -194,42 +187,44 @@ def modificarPerfil(id_perfil, parametros):
             anos_experiencia = ?,
             titulacion_requerida = ?
         WHERE id_perfil = ?
-    ''', (*parametros, id_perfil))
+    ''', (*parametros_nuevos, id_perfil_para_actualizar))
     conexion.commit()
     conexion.close()
-    print(f"Perfil con ID {id_perfil} modificado.")
+    print(f"Perfil con ID {id_perfil_para_actualizar} modificado.")
 
-# Seleccionar un perfil y guardarlo en una variable por medio de un select from id (Requiere de recabar el ID)
-def obtener_perfil_por_id(id):
+# Obtener un perfil por medio de un ID (requerido) y convertirlo de una variable.
+def obtener_perfil_por_id(id_para_obtener_perfil):
     conexion = sqlite3.connect(RUTA_BD)
     cursor = conexion.cursor()
-    cursor.execute("SELECT * FROM Perfiles WHERE id_perfil = ?", (id,))
+    cursor.execute("SELECT * FROM Perfiles WHERE id_perfil = ?", (id_para_obtener_perfil,))
     perfil = cursor.fetchone()
     conexion.close()
     
     if perfil:
         return perfil
     else:
-        print(f"No se encontró un perfil con ID {id}.")
+        print(f"No se encontró un perfil con ID {id_para_obtener_perfil}.")
         return None
     
-# Seleccionar un perfil y guardarlo en una variable por medio de un select from id (Requiere de recabar el ID)
+# Mostrar los registros de la tabla Resultados ordenados por porcentaje de similitud descendente.
 def verResultadosTabla():
     conexion = sqlite3.connect(RUTA_BD)
     cursor = conexion.cursor()
-    cursor.execute("SELECT * FROM Resultados")
-    perfil = cursor.fetchone()
+    cursor.execute("SELECT * FROM Resultados ORDER BY porcentaje_similitud DESC")
+    resultados = cursor.fetchall()
     conexion.close()
     
-    if perfil:
-        for resultado in perfil:
+    if resultados:
+        for resultado in resultados:
             print(resultado)
     else:
         print(f"No se encontró ningún resultado.")
         return None
 
+# Inicia lógica para poder insertar en la tabla Resultados.
+# Requiere de recabar datos tanto de los archivos PDF como de los perfiles.
 
-#Obtener los 3 campos de perfiles que son usados para insertar en resultados.
+#Obtener los 3 campos de la tabla Perfiles que son usados para insertar en resultados.
 def obtener_perfil_por_id_para_insertar_en_resultados(id_perfil):
     conn = sqlite3.connect(RUTA_BD)
     cursor = conn.cursor()
@@ -252,28 +247,36 @@ def obtener_perfil_por_id_para_insertar_en_resultados(id_perfil):
     else:
         return None
 
-#Metodos necesarios para insertar en la tabla de resultados
+# Función para extraer el nombre del candidato desde el nombre del archivo.
+# Este es un valor necesario para insertar en la tabla Resultados.
 def extraer_nombre_candidato(nombre_archivo):
-    # Asume que el nombre es algo como: "CV_JUAN PÉREZ_MARKETING.pdf"
-    base = os.path.basename(nombre_archivo)
-    nombre = os.path.splitext(base)[0]
-    nombre = nombre.replace("CV_", "").replace("_", " ").strip()
-    return nombre
+    nombre_base = os.path.basename(nombre_archivo)
+    nombre_sin_extension = os.path.splitext(nombre_base)[0]
+    partes = nombre_sin_extension.split('_')
 
-def insertar_resultados_comparacion(resultadosComparacion, ruta_definitiva, perfil, ruta_bd):
+    if len(partes) >= 3 and partes[0].strip().upper() == "CV":
+        return ' '.join(partes[1:-1]).strip()
+    else:
+        return "Desconocido"
+
+# Insertar valores extraídos en la tabla Resultados.
+# Requiere de: Diccionario con los resultados tras la comparación, ruta de los cvs definitivos, perfil y la ruta de la base de datos.
+# Por otro lado, se tienen metodos embebidos que extraen texto del PDF para crear un resumen del mismo (Dato requerido para esta tabla de Resultados).
+def insertar_resultados_comparacion(resultadosComparacion, ruta_definitiva, perfil, id_perfil_seleccionado):
     for nombre_archivo, porcentaje_similitud in resultadosComparacion.items():
         ruta_pdf = os.path.join(ruta_definitiva, os.path.basename(nombre_archivo))
-
-        # Extraer valores
+        # Preparación de los datos para insertar en la tabla Resultados.
+        id_del_perfil = obtener_perfil_por_id_para_insertar_en_resultados(id_perfil_seleccionado)
         nombre_candidato = extraer_nombre_candidato(nombre_archivo)
-        texto = extraer_texto_pdf(ruta_pdf)
-        resumen = obtener_resumen(texto)
+        texto_extraido = extraerTexto(rutaCarpetaCurriculumsDefinitivos)
+        texto_limpiado = limpiar_texto(texto_extraido)
+        texto_dividio_en_oraciones = dividir_en_oraciones(texto_limpiado)
+        resumen = obtener_resumen(texto_dividio_en_oraciones)
 
         with open(ruta_pdf, "rb") as f:
             pdf_bytes = f.read()
 
-        # Insertar en la tabla Resultados
-        conn = sqlite3.connect(ruta_bd)
+        conn = sqlite3.connect(RUTA_BD)
         cursor = conn.cursor()
         cursor.execute('''
             INSERT INTO Resultados (
@@ -286,14 +289,7 @@ def insertar_resultados_comparacion(resultadosComparacion, ruta_definitiva, perf
             resumen,
             pdf_bytes,
             perfil["nombre_perfil"],
-            perfil["id_perfil"]
+            id_del_perfil
         ))
         conn.commit()
         conn.close()
-
-
-    
-
-
-
-

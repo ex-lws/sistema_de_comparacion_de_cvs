@@ -2,24 +2,20 @@
 # Este código permite realizar las diferentes acciones de movimientos de PDFS (CVS) dentro del sistema.
 
 # VERSIÓN:
-# Versión 1.5 del código. 05/06/2025.
+# Versión 1.7 del código. 25/06/2025.
 
 # Importar las librerías necesarias
-
-#NOTA: 
-# Estos métodos requieren de returns de otros métodos para poder funcionar
-# Llamar desde el main siguiendo el flujo del programa.
-
 import os
 import re
 from pdfminer.high_level import extract_text 
 
 # Variables globales
 # Ruta de la carpeta de curriculums temporales
-rutaCarpetaCurriculumsTemporales = "cvsTermporales"  # Cambia por tu ruta real
-rutaCarpetaCurriculumsDefinitivos = "cvsDefinitivos"  # Cambia por tu ruta real
+rutaCarpetaCurriculumsTemporales = "cvsTermporales" 
+rutaCarpetaCurriculumsDefinitivos = "cvsDefinitivos" 
 
-# Extrae el texto de un PDF y lo guarda en una variable
+# Extrae el texto de un PDF y lo guarda en una variable.
+# Requiere de la ruta de los curriculums temporales.
 def extraerTexto(rutaCarpetaCurriculumsTemporales):
     try:
         text = extract_text(rutaCarpetaCurriculumsTemporales).upper()
@@ -28,52 +24,42 @@ def extraerTexto(rutaCarpetaCurriculumsTemporales):
     except Exception as e:
         return f"ERROR, NO HA SIDO POSIBLE EXTRAER EL TEXTO DEL PDF... : {str(e)}"
     
-# Limpiar texto
+# Limpiar texto extraído de un PDF y lo guarda en una variable.
+# Requiere de la variable texto que es el texto extraído del PDF.
 def limpiar_texto(texto):
     """
     Limpia el texto eliminando saltos de línea, espacios extra y caracteres no deseados.
     """
-    #texto = texto.replace('\n', ' ')           # Quita saltos de línea
-    #texto = texto.replace('\r', ' ')           # Quita retornos de carro
-    texto = re.sub(r'\s+', ' ', texto)         # Reemplaza múltiples espacios por uno solo
-    texto = re.sub(r'[^\w\s.,;:!?()\-]', '', texto)  # Quita caracteres especiales no deseados
-    texto = texto.strip()                      # Quita espacios al inicio y final
+    #texto = texto.replace('\n', ' ')
+    #texto = texto.replace('\r', ' ')          
+    texto = re.sub(r'\s+', ' ', texto)         
+    texto = re.sub(r'[^\w\s.,;:!?()\-]', '', texto)  
+    texto = texto.strip()                      
     return texto
 
 
-# Generar diccionario con las rutas relativas y el texto extraído para su posterior uso en la comparacion
+# Generar diccionario con las rutas relativas y el texto extraído, limpiado para su posterior uso en la comparacion.
+# Requiere como parametro la ruta de la carpeta de curriculums temporales.
+# Esta función tiene métodos embebidos que iteran por cada elementos de la carpeta de curriculums temporales.
+# Se extrae el texto, se limpia y se guarda en un diccionario con la ruta relativa como clave y el texto limpio como valor.
+# Sólo lo hace con los archivos PDF, ignorando otros tipos de archivos.
+# Básicamente, este diccionario contiene las rutas de los cvs temporales y el texto extraído de cada uno de ellos.
 def generar_diccionario_textos(rutaCarpetaCurriculumsTemporales):
-    diccionario_final = {} # Contendra keys (rutas relativas) y values (textos extraidos)
+    diccionario_semi_final = {}
     
     for raiz, _, archivos in os.walk(rutaCarpetaCurriculumsTemporales):
         for archivo in archivos:
             if archivo.lower().endswith('.pdf'):
                 ruta_relativa = os.path.relpath(os.path.join(raiz, archivo), rutaCarpetaCurriculumsTemporales)
                 ruta_absoluta = os.path.join(rutaCarpetaCurriculumsTemporales, ruta_relativa)
-                # Extraer texto del PDF
                 texto_extraido = extraerTexto(ruta_absoluta)
-                diccionario_final[ruta_relativa] = texto_extraido
+                texto_limpiado = limpiar_texto(texto_extraido)
+                diccionario_semi_final[ruta_relativa] = texto_limpiado
     
-    return diccionario_final
+    return diccionario_semi_final
 
-# Tras la limpieza genera un txt en pro de mejorar el rendimiento del programa.
-def generartxt(diccionario_final, rutaCarpetaCurriculumsTemporales):
-    """
-    Genera un archivo de texto con el contenido del diccionario.
-    """
-    ruta_txt = os.path.join(rutaCarpetaCurriculumsDefinitivos, "curriculums.txt")
-    
-    with open(ruta_txt, 'w', encoding='utf-8') as f:
-        for ruta, texto in diccionario_final.items():
-            f.write(f"RUTA: {ruta}\n")
-            f.write(f"TEXTO: {texto}\n\n")
-    
-    print(f"Archivo de texto generado en: {ruta_txt}")
-
-
-
-# Para mover los curriculums temporales a definitivos
-# Requereimos de la variable resultados que es un diccionario posterior a la comparacion de los curriculums.
+# Mover los curriculums temporales a definitivos, es decir, aquellos que han pasado la comparacion.
+# Requerimos de la variable resultados que es un diccionario posterior a la comparacion de los curriculums y las rutas globales de las carpetas.
 def moverCurriculumsTemporalesADefinitivos(diccionario_resultados, rutaCarpetaCurriculumsTemporales, rutaCarpetaCurriculumsDefinitivos):
     """
     Mueve los archivos PDF de la carpeta temporal a la carpeta definitiva,
@@ -91,6 +77,8 @@ def moverCurriculumsTemporalesADefinitivos(diccionario_resultados, rutaCarpetaCu
         else:
             print(f"No encontrado: {ruta_origen}")
 
+# Borrar todos los archivos, pasandole como parametro de la ruta especificada.
+# Funciona tanto para la carpeta de curriculums temporales como para la de definitivos.
 def borrar_todos_los_archivos(ruta_carpeta):
     """
     Borra todos los archivos de la carpeta especificada.
