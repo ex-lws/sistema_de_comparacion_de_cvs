@@ -29,8 +29,8 @@ def borrarBD():
     conexion.execute("PRAGMA foreign_keys = ON")  # Activa llaves foráneas
     cursor = conexion.cursor()
     # Ejecutar el comando para eliminar las tablas por separado
-    cursor.execute('DROP TABLE IF EXISTS Perfiles;')
     cursor.execute('DROP TABLE IF EXISTS Resultados;')
+    cursor.execute('DROP TABLE IF EXISTS Perfiles;')
     conexion.commit()
     conexion.close()
 
@@ -47,8 +47,8 @@ def crearTabla():
             tipoContratacion TEXT NOT NULL,
             horarioTrabajo TEXT NOT NULL,
             modalidadTrabajo TEXT NOT NULL,
-            sueldoMensualMinimo DOUBLE NOT NULL CHECK(salarioMensualMinimo <> ''),
-            sueldoMensualMaximo DOUBLE NOT NULL CHECK(salarioMensualMaximo <> ''),
+            sueldoMensualMinimo DOUBLE NOT NULL CHECK(sueldoMensualMinimo <> ''),
+            sueldoMensualMaximo DOUBLE NOT NULL CHECK(sueldoMensualMaximo <> ''),
             escolaridad TEXT NOT NULL,
             area TEXT NOT NULL,
             puestoTrabajo TEXT NOT NULL CHECK(puestoTrabajo <> ''),

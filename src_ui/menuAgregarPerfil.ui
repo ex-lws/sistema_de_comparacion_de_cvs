@@ -39,7 +39,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>menuEditarPerfilCamposFigma.png</pixmap>
+     <pixmap>menuAgregarPerfilFigma.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="labelConfiguracion">
@@ -606,7 +606,7 @@
     </item>
     <item>
      <property name="text">
-      <string>Ciuadad de mexico</string>
+      <string>Ciudad de mexico</string>
      </property>
     </item>
     <item>
