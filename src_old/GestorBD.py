@@ -42,21 +42,28 @@ def crearTabla():
     # Crear la tabla de perfiles si no existe
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS Perfiles (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            nombrePerfil TEXT NOT NULL CHECK(nombrePerfil <> ''),
-            tipoContratacion TEXT NOT NULL,
-            horarioTrabajo TEXT NOT NULL,
-            modalidadTrabajo TEXT NOT NULL,
-            sueldoMensualMinimo DOUBLE NOT NULL CHECK(sueldoMensualMinimo <> ''),
-            sueldoMensualMaximo DOUBLE NOT NULL CHECK(sueldoMensualMaximo <> ''),
-            escolaridad TEXT NOT NULL,
-            area TEXT NOT NULL,
-            puestoTrabajo TEXT NOT NULL CHECK(puestoTrabajo <> ''),
-            ubicacion TEXT NOT NULL,
-            idioma TEXT NOT NULL,
-            nivelIdioma TEXT,
-            licenciaConducir BOOLEAN NOT NULL,
-            anosExperiencia INTEGER NOT NULL
+            id_perfil INTEGER PRIMARY KEY AUTOINCREMENT,
+            nombre_perfil TEXT NOT NULL,
+            puesto_deseado TEXT,
+            area_funcional TEXT,
+            escolaridad TEXT,
+            sueldo_mensual_minimo DOUBLE,
+            sueldo_mensual_maximo DOUBLE,
+            sector TEXT,
+            ubicacion TEXT,
+            carrera TEXT,
+            edad INTEGER,
+            informacion_adicional TEXT,
+            herramientas_dominadas TEXT,
+            habilidades_tecnicas TEXT,
+            habilidades_blandas TEXT,
+            logros_destacados TEXT,
+            certificaciones TEXT,
+            disponibilidad TEXT,
+            idioma TEXT,
+            nivel_idioma TEXT,
+            anos_experiencia INTEGER,
+            titulacion_requerida TEXT
         )
     ''')
     #print ("Tabla 'Perfiles' creada o ya existe.")
@@ -72,15 +79,15 @@ def crearTablaResultados():
     # Crear la tabla de perfiles si no existe
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS Resultados (
-            idResultado INTEGER PRIMARY KEY AUTOINCREMENT,
-            nombreCandidato TEXT NOT NULL,
-            porcentajeSimilitud TEXT NOT NULL,
-            puestoTrabajo TEXT NULL, -- Proviene de perfiles BD
-            resumen TEXT NOT NULL,
-            pdfCurriculum BLOP,
-            nombrePefil NOT NULL, -- Proviene de perfiles BD
-            idPerfil INTEGER NOT NULL, -- Proviene de perfiles BD 
-            FOREIGN KEY (idPerfil) REFERENCES Perfiles(id)
+            id_resultado INTEGER PRIMARY KEY AUTOINCREMENT,
+            nombre_candidato TEXT NOT NULL,
+            porcentaje_similitud DOUBLE,
+            puesto_deseado TEXT,
+            resumen TEXT,
+            pdf_curriculum BLOB,
+            nombre_perfil TEXT,
+            id_perfil INTEGER,
+            FOREIGN KEY (id_perfil) REFERENCES Perfiles(id_perfil)
         )
     ''')
     #print ("Tabla 'Resultados' creada o ya existe.")
@@ -108,10 +115,28 @@ def insertarPerfil(parametros):
     cursor = conexion.cursor()
     cursor.execute('''
         INSERT INTO Perfiles (
-            nombrePerfil, tipoContratacion, horarioTrabajo, modalidadTrabajo, sueldoMensualMinimo,
-            sueldoMensualMaximo, escolaridad, area, puestoTrabajo, ubicacion, idioma,
-            nivelIdioma, licenciaConducir, anosExperiencia
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            nombre_perfil,
+            puesto_deseado,
+            area_funcional,
+            escolaridad,
+            sueldo_mensual_minimo,
+            sueldo_mensual_maximo,
+            sector,
+            ubicacion,
+            carrera,
+            edad,
+            informacion_adicional,
+            herramientas_dominadas,
+            habilidades_tecnicas,
+            habilidades_blandas,
+            logros_destacados,
+            certificaciones,
+            disponibilidad,
+            idioma,
+            nivel_idioma,
+            anos_experiencia,
+            titulacion_requerida
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ''', parametros)
     conexion.commit()
     conexion.close()
@@ -124,7 +149,7 @@ def existe_id_perfil(id_buscar):
     """
     conexion = sqlite3.connect(RUTA_BD)
     cursor = conexion.cursor()
-    cursor.execute("SELECT 1 FROM perfiles WHERE id = ?", (id_buscar,))
+    cursor.execute("SELECT 1 FROM Perfiles WHERE id = ?", (id_buscar,))
     resultado = cursor.fetchone()
     conexion.close()
     return resultado is not None
@@ -140,30 +165,38 @@ def eliminarPerfil(id):
     print(f"Perfil con ID {id} eliminado.")
 
 # Actualizar un perfil por medio del ID. (Requiere de recoger un ID y modificar parametros)
-def modificarPerfil(id, parametros):
+def modificarPerfil(id_perfil, parametros):
+    import sqlite3
     conexion = sqlite3.connect(RUTA_BD)
     cursor = conexion.cursor()
     cursor.execute('''
         UPDATE Perfiles SET
-            nombrePerfil = ?,
-            tipoContratacion = ?,
-            horarioTrabajo = ?,
-            modalidadTrabajo = ?,
-            sueldoMensualMinimo = ?,
-            sueldoMensualMaximo = ?,
+            nombre_perfil = ?,
+            puesto_deseado = ?,
+            area_funcional = ?,
             escolaridad = ?,
-            area = ?,
-            puestoTrabajo = ?,
+            sueldo_mensual_minimo = ?,
+            sueldo_mensual_maximo = ?,
+            sector = ?,
             ubicacion = ?,
+            carrera = ?,
+            edad = ?,
+            informacion_adicional = ?,
+            herramientas_dominadas = ?,
+            habilidades_tecnicas = ?,
+            habilidades_blandas = ?,
+            logros_destacados = ?,
+            certificaciones = ?,
+            disponibilidad = ?,
             idioma = ?,
-            nivelIdioma = ?,
-            licenciaConducir = ?,
-            anosExperiencia = ?
-        WHERE id = ?
-    ''', (*parametros, id))
+            nivel_idioma = ?,
+            anos_experiencia = ?,
+            titulacion_requerida = ?
+        WHERE id_perfil = ?
+    ''', (*parametros, id_perfil))
     conexion.commit()
     conexion.close()
-    print(f"Perfil con ID {id} modificado.")
+    print(f"Perfil con ID {id_perfil} modificado.")
 
 # Seleccionar un perfil y guardarlo en una variable por medio de un select from id (Requiere de recabar el ID)
 def obtener_perfil_por_id(id):
@@ -196,12 +229,12 @@ def verResultadosTabla():
 
 
 #Obtener los 3 campos de perfiles que son usados para insertar en resultados.
-def obtener_perfil_por_id(id_perfil):
+def obtener_perfil_por_id_para_insertar_en_resultados(id_perfil):
     conn = sqlite3.connect(RUTA_BD)
     cursor = conn.cursor()
     
     cursor.execute('''
-        SELECT id, nombrePerfil, puestoTrabajo
+        SELECT id_perfil, nombre_perfil, puesto_deseado
         FROM Perfiles
         WHERE id = ?
     ''', (id_perfil,))
@@ -211,9 +244,9 @@ def obtener_perfil_por_id(id_perfil):
     
     if fila:
         return {
-            "id": fila[0],
-            "nombrePerfil": fila[1],
-            "puestoTrabajo": fila[2]
+            "id_perfil": fila[0],
+            "nombre_perfil": fila[1],
+            "puesto_deseado": fila[2]
         }
     else:
         return None
@@ -243,16 +276,16 @@ def insertar_resultados_comparacion(resultadosComparacion, ruta_definitiva, perf
         cursor = conn.cursor()
         cursor.execute('''
             INSERT INTO Resultados (
-                nombreCandidato, porcentajeSimilitud, puestoTrabajo, resumen, pdfCurriculum, nombrePefil, idPerfil
-            ) VALUES (?, ?, ?, ?, ?, ?, ?)
+                nombre_candidato, porcentaje_similitud, puesto_deseado, resumen, pdf_curriculum, nombre_perfil, id_perfil
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         ''', (
             nombre_candidato,
             porcentaje_similitud,
-            perfil["puestoTrabajo"],
+            perfil["puesto_deseado"],
             resumen,
             pdf_bytes,
-            perfil["nombrePerfil"],
-            perfil["id"]
+            perfil["nombre_perfil"],
+            perfil["id_perfil"]
         ))
         conn.commit()
         conn.close()
