@@ -232,7 +232,7 @@ def obtener_perfil_por_id_para_insertar_en_resultados(id_perfil):
     cursor.execute('''
         SELECT id_perfil, nombre_perfil, puesto_deseado
         FROM Perfiles
-        WHERE id = ?
+        WHERE id_perfil = ?
     ''', (id_perfil,))
     
     fila = cursor.fetchone()
@@ -249,6 +249,8 @@ def obtener_perfil_por_id_para_insertar_en_resultados(id_perfil):
 
 # Función para extraer el nombre del candidato desde el nombre del archivo.
 # Este es un valor necesario para insertar en la tabla Resultados.
+
+'''
 def extraer_nombre_candidato(nombre_archivo):
     nombre_base = os.path.basename(nombre_archivo)
     nombre_sin_extension = os.path.splitext(nombre_base)[0]
@@ -258,20 +260,26 @@ def extraer_nombre_candidato(nombre_archivo):
         return ' '.join(partes[1:-1]).strip()
     else:
         return "Desconocido"
+'''
+
+def extraer_nombre_candidato(nombre_archivo):
+    # Asume que el nombre es algo como: "CV_JUAN PÉREZ_MARKETING.pdf"
+    base = os.path.basename(nombre_archivo)
+    nombre = os.path.splitext(base)[0]
+    nombre = nombre.replace("CV", "").replace("_", " ").strip()
+    return nombre
 
 # Insertar valores extraídos en la tabla Resultados.
 # Requiere de: Diccionario con los resultados tras la comparación, ruta de los cvs definitivos, perfil y la ruta de la base de datos.
 # Por otro lado, se tienen metodos embebidos que extraen texto del PDF para crear un resumen del mismo (Dato requerido para esta tabla de Resultados).
-def insertar_resultados_comparacion(resultadosComparacion, ruta_definitiva, perfil, id_perfil_seleccionado):
+def insertar_resultados_comparacion(resultadosComparacion, ruta_definitiva, datos_perfil,id_perfil):
     for nombre_archivo, porcentaje_similitud in resultadosComparacion.items():
         ruta_pdf = os.path.join(ruta_definitiva, os.path.basename(nombre_archivo))
         # Preparación de los datos para insertar en la tabla Resultados.
-        id_del_perfil = obtener_perfil_por_id_para_insertar_en_resultados(id_perfil_seleccionado)
+        #id_del_perfil = obtener_perfil_por_id_para_insertar_en_resultados(id_perfil_seleccionado)
         nombre_candidato = extraer_nombre_candidato(nombre_archivo)
-        texto_extraido = extraerTexto(rutaCarpetaCurriculumsDefinitivos)
-        texto_limpiado = limpiar_texto(texto_extraido)
-        texto_dividio_en_oraciones = dividir_en_oraciones(texto_limpiado)
-        resumen = obtener_resumen(texto_dividio_en_oraciones)
+        resumen = procesar_cv(ruta_pdf)
+        datos_perfil = obtener_perfil_por_id_para_insertar_en_resultados(id_perfil)
 
         with open(ruta_pdf, "rb") as f:
             pdf_bytes = f.read()
@@ -281,15 +289,15 @@ def insertar_resultados_comparacion(resultadosComparacion, ruta_definitiva, perf
         cursor.execute('''
             INSERT INTO Resultados (
                 nombre_candidato, porcentaje_similitud, puesto_deseado, resumen, pdf_curriculum, nombre_perfil, id_perfil
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            ) VALUES (?, ?, ?, ?, ?, ?, ?)
         ''', (
             nombre_candidato,
             porcentaje_similitud,
-            perfil["puesto_deseado"],
+            datos_perfil["puesto_deseado"],
             resumen,
             pdf_bytes,
-            perfil["nombre_perfil"],
-            id_del_perfil
+            datos_perfil["nombre_perfil"],
+            id_perfil
         ))
         conn.commit()
         conn.close()

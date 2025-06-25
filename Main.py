@@ -78,9 +78,13 @@ def main():
             # Comienza el proces de comparación.
             resultados_primera_fase = comparar_curriculums(diccionario_con_rutas_y_textos_limpiados, perfil_extraido)
             # Mostrar los resultados de la comparación en la primera fase.
-            mostrarResultadosTrasComparacion(resultados_primera_fase)
+            print(mostrarResultadosTrasComparacion(resultados_primera_fase))
+            #Comienza el movimiento de los curriculums temporales a los definitivos.
+            moverCurriculumsTemporalesADefinitivos(resultados_primera_fase, rutaCarpetaCurriculumsTemporales, rutaCarpetaCurriculumsDefinitivos)
+            print("Curriculums movidos a la carpeta de curriculums definitivos.")
             # Comienza la inserción de los resultados en la base de datos tras la comparación.
-            insertar_resultados_comparacion(resultados_primera_fase, rutaCarpetaCurriculumsDefinitivos, perfil_extraido, RUTA_BD, id_seleccionado_por_el_usuario)
+            datos_perfil = obtener_perfil_por_id_para_insertar_en_resultados(id_seleccionado_por_el_usuario)
+            insertar_resultados_comparacion(resultados_primera_fase, rutaCarpetaCurriculumsDefinitivos, datos_perfil, id_seleccionado_por_el_usuario)
             print("Puede consultar la tabla de resultados para información más detallada.")
 
         elif seleccionUsuario == 3: # Mostrar perfiles dados de alta.

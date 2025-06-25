@@ -17,19 +17,17 @@ from src_old.AccionesCurriculum import *
 # Modelo de SentenceTransformer para generar embeddings.
 modelo = SentenceTransformer('paraphrase-MiniLM-L6-v2')
 
-texto_extraido = extraerTexto(rutaCarpetaCurriculumsDefinitivos)
-texto_limpiado = limpiar_texto(texto_extraido)
-
 # Dividir el texto en oraciones.
 def dividir_en_oraciones(texto_limpiado):
     oraciones = re.split(r'(?<=[.!?]) +', texto_limpiado)
     return [o.strip() for o in oraciones if len(o.strip()) > 20]
 
-texto_dividio_en_oraciones = dividir_en_oraciones(texto_limpiado)
-
 # Generar un resumen de texto.
-def obtener_resumen(texto_dividio_en_oraciones, num_oraciones=5):
-    oraciones = dividir_en_oraciones(texto_dividio_en_oraciones)
+def obtener_resumen(num_oraciones=5):
+    rutaCarpetaCurriculumsDefinitivos = "cvsDefinitivos"  
+    texto_extraido = extraerTexto(rutaCarpetaCurriculumsDefinitivos)    
+    texto_limpiado = limpiar_texto(texto_extraido)
+    oraciones = dividir_en_oraciones(texto_limpiado)
     if len(oraciones) <= num_oraciones:
         return ' '.join(oraciones)
 
@@ -44,13 +42,7 @@ def obtener_resumen(texto_dividio_en_oraciones, num_oraciones=5):
 # Imprimir el resumen en consola.
 def procesar_cv(ruta_pdf):
     nombre_archivo = os.path.basename(ruta_pdf)
-    resumen = obtener_resumen(texto_dividio_en_oraciones)
-
-    # ✅ Aquí ya tienes el resumen en una variable
-    print(f"\n--- Resumen del archivo: {nombre_archivo} ---\n")
-    print(resumen)
-    print("\n--- Fin del resumen ---\n")
-
+    resumen = obtener_resumen()
     # Aquí ya puedes usarlo para insertar en la tabla
     return resumen
 

@@ -13,7 +13,7 @@ import os
 # Carga el modelo MiniLM-L6-v2.
 modelo = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
 # Limite del porcentaje de similitud para mostrar  e ingestar al diccionario resultados.
-porcentajeSimulitd = 75.0
+porcentajeSimulitd = 50.0
 
 # Este método permite comparar un perfil con los curriculums.
 # Requiere como parámetros un diccionario con las rutas relativas de los cvs temporale y su texto extraído y limpiado.

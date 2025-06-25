@@ -11,7 +11,7 @@ from pdfminer.high_level import extract_text
 
 # Variables globales
 # Ruta de la carpeta de curriculums temporales
-rutaCarpetaCurriculumsTemporales = "cvsTermporales" 
+rutaCarpetaCurriculumsTemporales = "cvsTemporales" 
 rutaCarpetaCurriculumsDefinitivos = "cvsDefinitivos" 
 
 # Extrae el texto de un PDF y lo guarda en una variable.
