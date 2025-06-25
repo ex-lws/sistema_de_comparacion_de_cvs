@@ -1,33 +1,42 @@
 # EXPLICACIÓN: 
-# Este código permite poder generar un resumen a partir de los CVS definitivos.
-# La variable resumen es necesaria para poder insertarla dentro de la tabla de Resultados.
-# Generar el resumen requiere de extrer el texto y limpiarlo, por lo que se quiere importar métodos de AccionesCurriculum.py
-# Por otro lado, estos métodos embebidos deberán funcionar con la ruta de los CVS definitivos. (Aquellos que pasaron la prueba.)
+# Este código permite recoger los datos necesarios para dar de alta un resultado.
+# Las variables se guardan en Python para después ser insertadas con otro método en la BD (Resultados).
 
 # VERSIÓN:
-# Versión 1.6 del código. 25/06/2025.
+# Versión 1.5 del código. 5/06/2025.
+
+# Campos que requiere la talba de resultados.
+
+# idResultado
+# nombreCandidato
+# porcentajeSimilitud
+# puestoTrabajo -- Proviene de perfiles BD
+# resumen
+# pdfCurriculum
+# nombrePerfil -- Proviene de perfiles BD
+# idPerfil -- Proviene de perfiles BD
 
 # Librerias necesarias
+
 import os
 import re
 from pdfminer.high_level import extract_text
 from sentence_transformers import SentenceTransformer, util
-from src_old.AccionesCurriculum import *
 
-# Modelo de SentenceTransformer para generar embeddings.
-modelo = SentenceTransformer('paraphrase-MiniLM-L6-v2')
+# 1. Extraer texto del PDF
+def extraer_texto_pdf(ruta_pdf):
+    return extract_text(ruta_pdf)
 
-# Dividir el texto en oraciones.
-def dividir_en_oraciones(texto_limpiado):
-    oraciones = re.split(r'(?<=[.!?]) +', texto_limpiado)
+# 2. Dividir el texto en oraciones
+def dividir_en_oraciones(texto):
+    oraciones = re.split(r'(?<=[.!?]) +', texto)
     return [o.strip() for o in oraciones if len(o.strip()) > 20]
 
-# Generar un resumen de texto.
-def obtener_resumen(num_oraciones=5):
-    rutaCarpetaCurriculumsDefinitivos = "cvsDefinitivos"  
-    texto_extraido = extraerTexto(rutaCarpetaCurriculumsDefinitivos)    
-    texto_limpiado = limpiar_texto(texto_extraido)
-    oraciones = dividir_en_oraciones(texto_limpiado)
+# 3. Obtener resumen usando sentence-transformers
+modelo = SentenceTransformer('paraphrase-MiniLM-L6-v2')
+
+def obtener_resumen(texto, num_oraciones=5):
+    oraciones = dividir_en_oraciones(texto)
     if len(oraciones) <= num_oraciones:
         return ' '.join(oraciones)
 
@@ -39,10 +48,11 @@ def obtener_resumen(num_oraciones=5):
     resumen_ordenado = [oraciones[i] for i in sorted(indices_top.tolist())]
     return ' '.join(resumen_ordenado)
 
-# Imprimir el resumen en consola.
+# 4. Procesar e imprimir
 def procesar_cv(ruta_pdf):
     nombre_archivo = os.path.basename(ruta_pdf)
-    resumen = obtener_resumen()
+    texto = extraer_texto_pdf(ruta_pdf)
+    resumen = obtener_resumen(texto)
     # Aquí ya puedes usarlo para insertar en la tabla
     return resumen
 
