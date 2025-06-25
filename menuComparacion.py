@@ -95,22 +95,29 @@ class VentanaMenuComparacion(QtWidgets.QMainWindow):
         self.model.select()
         self.model.setEditStrategy(QSqlTableModel.EditStrategy.OnManualSubmit)  # No permite edición directa
 
-        # Renombrar los headers o encabezados.
+        # Renombrar los headers o encabezados según la definición de la tabla
         self.model.setHeaderData(0, Qt.Orientation.Horizontal, "ID")
         self.model.setHeaderData(1, Qt.Orientation.Horizontal, "Nombre del perfil")
-        self.model.setHeaderData(2, Qt.Orientation.Horizontal, "Contratación")
-        self.model.setHeaderData(3, Qt.Orientation.Horizontal, "Horario de trabajo")
-        self.model.setHeaderData(4, Qt.Orientation.Horizontal, "Modalidad")
-        self.model.setHeaderData(5, Qt.Orientation.Horizontal, "Sueldo MAX")
-        self.model.setHeaderData(6, Qt.Orientation.Horizontal, "Sueldo MIN")
-        self.model.setHeaderData(7, Qt.Orientation.Horizontal, "Escolaridad")
-        self.model.setHeaderData(8, Qt.Orientation.Horizontal, "Área")
-        self.model.setHeaderData(9, Qt.Orientation.Horizontal, "Puesto")
-        self.model.setHeaderData(10, Qt.Orientation.Horizontal, "Ubicación")
-        self.model.setHeaderData(11, Qt.Orientation.Horizontal, "Idioma")
-        self.model.setHeaderData(12, Qt.Orientation.Horizontal, "Nivel de idioma")
-        self.model.setHeaderData(13, Qt.Orientation.Horizontal, "Licencia de conducir")
-        self.model.setHeaderData(14, Qt.Orientation.Horizontal, "Años de experiencia")
+        self.model.setHeaderData(2, Qt.Orientation.Horizontal, "Puesto deseado")
+        self.model.setHeaderData(3, Qt.Orientation.Horizontal, "Área funcional")
+        self.model.setHeaderData(4, Qt.Orientation.Horizontal, "Escolaridad")
+        self.model.setHeaderData(5, Qt.Orientation.Horizontal, "Sueldo mensual mínimo")
+        self.model.setHeaderData(6, Qt.Orientation.Horizontal, "Sueldo mensual máximo")
+        self.model.setHeaderData(7, Qt.Orientation.Horizontal, "Sector")
+        self.model.setHeaderData(8, Qt.Orientation.Horizontal, "Ubicación")
+        self.model.setHeaderData(9, Qt.Orientation.Horizontal, "Carrera")
+        self.model.setHeaderData(10, Qt.Orientation.Horizontal, "Edad")
+        self.model.setHeaderData(11, Qt.Orientation.Horizontal, "Información adicional")
+        self.model.setHeaderData(12, Qt.Orientation.Horizontal, "Herramientas dominadas")
+        self.model.setHeaderData(13, Qt.Orientation.Horizontal, "Habilidades técnicas")
+        self.model.setHeaderData(14, Qt.Orientation.Horizontal, "Habilidades blandas")
+        self.model.setHeaderData(15, Qt.Orientation.Horizontal, "Logros destacados")
+        self.model.setHeaderData(16, Qt.Orientation.Horizontal, "Certificaciones")
+        self.model.setHeaderData(17, Qt.Orientation.Horizontal, "Disponibilidad")
+        self.model.setHeaderData(18, Qt.Orientation.Horizontal, "Idioma")
+        self.model.setHeaderData(19, Qt.Orientation.Horizontal, "Nivel de idioma")
+        self.model.setHeaderData(20, Qt.Orientation.Horizontal, "Años de experiencia")
+        self.model.setHeaderData(21, Qt.Orientation.Horizontal, "Titulación requerida")
 
     def personalizar_tableview(self):
         # Ocultar la columna de enumeración (vertical header)
@@ -124,7 +131,7 @@ class VentanaMenuComparacion(QtWidgets.QMainWindow):
 
         # Hacer que los encabezados ocupen todo el ancho del tableView
         header = self.tableViewVerPerfiles.horizontalHeader()
-        header.setSectionResizeMode(QHeaderView.ResizeMode.Stretch)
+        header.setSectionResizeMode(QHeaderView.ResizeMode.ResizeToContents)
         
     
     

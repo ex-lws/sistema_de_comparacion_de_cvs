@@ -93,7 +93,7 @@ def main():
             perfil = obtener_perfil_por_id(idPerfil)
             print(perfil)
             print ("Mostrar resultados de la comparación...")
-            resultadosComparacion = comparar_curriculums(diccionarioTrasLimpieza, perfil["nombrePerfil"])
+            resultadosComparacion = comparar_curriculums(diccionarioTrasLimpieza, perfil["nombre_perfil"])
             mostrarResultadosTrasComparacion(resultadosComparacion)
             moverCurriculumsTemporalesADefinitivos(resultadosComparacion, rutaCarpetaCurriculumsTemporales, rutaCarpetaCurriculumsDefinitivos)
             print ("Los CVS temporales han sido movidos a la carpeta definitiva.")

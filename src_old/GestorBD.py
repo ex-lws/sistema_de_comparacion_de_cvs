@@ -111,6 +111,7 @@ def verPerfiles():
 
 # Insertar perfiles (Requiere de previamente recoger los datos a insertar)
 def insertarPerfil(parametros):
+    import sqlite3
     conexion = sqlite3.connect(RUTA_BD)
     cursor = conexion.cursor()
     cursor.execute('''
@@ -149,7 +150,7 @@ def existe_id_perfil(id_buscar):
     """
     conexion = sqlite3.connect(RUTA_BD)
     cursor = conexion.cursor()
-    cursor.execute("SELECT 1 FROM Perfiles WHERE id = ?", (id_buscar,))
+    cursor.execute("SELECT 1 FROM Perfiles WHERE id_perfil = ?", (id_buscar,))
     resultado = cursor.fetchone()
     conexion.close()
     return resultado is not None
@@ -159,7 +160,7 @@ def existe_id_perfil(id_buscar):
 def eliminarPerfil(id):
     conexion = sqlite3.connect(RUTA_BD)
     cursor = conexion.cursor()
-    cursor.execute("DELETE FROM Perfiles WHERE id = ?", (id,))
+    cursor.execute("DELETE FROM Perfiles WHERE id_perfil = ?", (id,))
     conexion.commit()
     conexion.close()
     print(f"Perfil con ID {id} eliminado.")
@@ -202,7 +203,7 @@ def modificarPerfil(id_perfil, parametros):
 def obtener_perfil_por_id(id):
     conexion = sqlite3.connect(RUTA_BD)
     cursor = conexion.cursor()
-    cursor.execute("SELECT * FROM Perfiles WHERE id = ?", (id,))
+    cursor.execute("SELECT * FROM Perfiles WHERE id_perfil = ?", (id,))
     perfil = cursor.fetchone()
     conexion.close()
     

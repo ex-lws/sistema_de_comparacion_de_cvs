@@ -940,7 +940,7 @@
      <string>Edad:</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEditCarrera_2">
+   <widget class="QLineEdit" name="lineEdad">
     <property name="geometry">
      <rect>
       <x>1050</x>
@@ -963,7 +963,7 @@
      <string>Información adicional:</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QTextEdit" name="textEditInformacionAdicional">
     <property name="geometry">
      <rect>
       <x>1050</x>
@@ -986,7 +986,7 @@
      <string>Titulación requerida:</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox">
+   <widget class="QComboBox" name="comboBoxTitulacion">
     <property name="geometry">
      <rect>
       <x>350</x>
