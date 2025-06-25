@@ -54,19 +54,15 @@ class VentanaMenuComparacion(QtWidgets.QMainWindow):
 
         if id_existe:
             id_seleccionado_para_comparar = int(id_seleccionado_para_comparar)
-            texto = extraerTexto(rutaCarpetaCurriculumsTemporales)
-            limpiar_texto(texto)
-            diccionarioTrasLimpieza = generar_diccionario_textos(rutaCarpetaCurriculumsTemporales)
             perfil = obtener_perfil_por_id(id_seleccionado_para_comparar)
-            resultadosComparacion = comparar_curriculums(diccionarioTrasLimpieza, perfil["nombrePerfil"])
-            mostrarResultadosTrasComparacion(resultadosComparacion)
-            moverCurriculumsTemporalesADefinitivos(resultadosComparacion, rutaCarpetaCurriculumsTemporales, rutaCarpetaCurriculumsDefinitivos)
-            insertar_resultados_comparacion(
-            resultadosComparacion,
-            rutaCarpetaCurriculumsDefinitivos,
-            perfil,
-            RUTA_BD
-            )
+            diccionario_con_rutas_y_textos_limpiados = generar_diccionario_textos(rutaCarpetaCurriculumsTemporales)
+            resultados_primera_fase = comparar_curriculums(diccionario_con_rutas_y_textos_limpiados, perfil)
+            print(mostrarResultadosTrasComparacion(resultados_primera_fase))
+            moverCurriculumsTemporalesADefinitivos(resultados_primera_fase, rutaCarpetaCurriculumsTemporales, rutaCarpetaCurriculumsDefinitivos)
+            # Comienza la inserción de los resultados en la base de datos tras la comparación.
+            datos_perfil = obtener_perfil_por_id_para_insertar_en_resultados(id_seleccionado_para_comparar)
+            insertar_resultados_comparacion(resultados_primera_fase, rutaCarpetaCurriculumsDefinitivos, datos_perfil, id_seleccionado_para_comparar)
+            print("Puede consultar la tabla de resultados para información más detallada.")
             QMessageBox.information(self, "Éxito", "comparación realizada de manera exitosa.")
             self.model.select() # Actualizamos el modelo para reflejar los cambios en la tabla.
             self.lineEditIdPerfilComparar.clear()
