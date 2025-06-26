@@ -50,7 +50,8 @@ def main():
         print("7. Consultar resultados")
         print("8. Borrar todos los curriculums")
         print("9. Borrar todos los datos")
-        print("10. Salir")
+        print("10. Borrar todos los resultados")
+        print("11. Salir")
         seleccionUsuario = int(input("\nSelecciona una opción: "))
 
         if seleccionUsuario == 1: # Agregar un perfil desde consola.
@@ -121,7 +122,11 @@ def main():
         elif seleccionUsuario == 9: # Borrar la base de datos.
             print('--- Borrar todos los datos ---')
             borrarBD()
-        elif seleccionUsuario == 10: # Salir del programa.
+        elif seleccionUsuario == 10:
+            print("Borrando resultados...")
+            borrarTablaResultados()
+            print("Los resultados han sido borrados.")
+        elif seleccionUsuario == 11: # Salir del programa.
             print('--- Saliendo del Programa ---')
             break
         else:

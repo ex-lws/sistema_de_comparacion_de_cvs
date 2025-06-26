@@ -33,6 +33,28 @@ def borrarBD():
     conexion.commit()
     conexion.close()
 
+def borrarTablaResultados():
+
+    conexion = sqlite3.connect(RUTA_BD)
+    conexion.execute("PRAGMA foreign_keys = ON") 
+    cursor = conexion.cursor()
+    cursor.execute('''
+        DROP TABLE IF EXISTS Resultados;
+    ''')
+    conexion.commit()
+    conexion.close()
+
+def borrarTablaPerfiles():
+
+    conexion = sqlite3.connect(RUTA_BD)
+    conexion.execute("PRAGMA foreign_keys = ON") 
+    cursor = conexion.cursor()
+    cursor.execute('''
+        DROP TABLE IF EXISTS Perfiles;
+    ''')
+    conexion.commit()
+    conexion.close()
+
 # Crear la tabla de los perfiles.
 def crearTabla():
 
