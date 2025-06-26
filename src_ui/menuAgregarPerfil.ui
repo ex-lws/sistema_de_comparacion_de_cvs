@@ -61,10 +61,10 @@
    <widget class="QLabel" name="labelAgregarPerfil">
     <property name="geometry">
      <rect>
-      <x>1470</x>
+      <x>1460</x>
       <y>290</y>
-      <width>391</width>
-      <height>361</height>
+      <width>381</width>
+      <height>341</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -77,8 +77,8 @@
    <widget class="QLineEdit" name="lineEditNombrePerfil">
     <property name="geometry">
      <rect>
-      <x>1050</x>
-      <y>300</y>
+      <x>310</x>
+      <y>290</y>
       <width>311</width>
       <height>31</height>
      </rect>
@@ -96,8 +96,8 @@
    <widget class="QLineEdit" name="lineEditSalarioMinimo">
     <property name="geometry">
      <rect>
-      <x>1050</x>
-      <y>460</y>
+      <x>310</x>
+      <y>450</y>
       <width>311</width>
       <height>31</height>
      </rect>
@@ -109,8 +109,8 @@
    <widget class="QLineEdit" name="lineEditSalarioMaximo">
     <property name="geometry">
      <rect>
-      <x>1050</x>
-      <y>500</y>
+      <x>310</x>
+      <y>490</y>
       <width>311</width>
       <height>31</height>
      </rect>
@@ -122,8 +122,8 @@
    <widget class="QComboBox" name="comboBoxAreaTrabajo">
     <property name="geometry">
      <rect>
-      <x>1050</x>
-      <y>380</y>
+      <x>310</x>
+      <y>370</y>
       <width>311</width>
       <height>31</height>
      </rect>
@@ -247,8 +247,8 @@
    <widget class="QLineEdit" name="lineEditPuestoTrabajo">
     <property name="geometry">
      <rect>
-      <x>1050</x>
-      <y>340</y>
+      <x>310</x>
+      <y>330</y>
       <width>311</width>
       <height>31</height>
      </rect>
@@ -263,8 +263,8 @@
    <widget class="QComboBox" name="comboBoxIdioma">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>550</y>
+      <x>1020</x>
+      <y>540</y>
       <width>311</width>
       <height>31</height>
      </rect>
@@ -303,8 +303,8 @@
    <widget class="QComboBox" name="comboBoxNivelIdioma">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>590</y>
+      <x>1020</x>
+      <y>580</y>
       <width>311</width>
       <height>31</height>
      </rect>
@@ -333,8 +333,8 @@
    <widget class="QComboBox" name="comboBoxEscolaridad">
     <property name="geometry">
      <rect>
-      <x>1050</x>
-      <y>420</y>
+      <x>310</x>
+      <y>410</y>
       <width>311</width>
       <height>31</height>
      </rect>
@@ -358,8 +358,8 @@
    <widget class="QComboBox" name="comboBoxUbicacion">
     <property name="geometry">
      <rect>
-      <x>1050</x>
-      <y>580</y>
+      <x>310</x>
+      <y>570</y>
       <width>311</width>
       <height>31</height>
      </rect>
@@ -541,8 +541,8 @@
    <widget class="QComboBox" name="comboBoxAnosExperiencia">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>640</y>
+      <x>1020</x>
+      <y>630</y>
       <width>311</width>
       <height>31</height>
      </rect>
@@ -606,8 +606,8 @@
    <widget class="QLabel" name="labelNombrePerfil">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>310</y>
+      <x>110</x>
+      <y>300</y>
       <width>131</width>
       <height>19</height>
      </rect>
@@ -619,8 +619,8 @@
    <widget class="QLabel" name="labelPuestoDeseado">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>350</y>
+      <x>110</x>
+      <y>340</y>
       <width>131</width>
       <height>19</height>
      </rect>
@@ -632,8 +632,8 @@
    <widget class="QLabel" name="labelAreaFuncional">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>390</y>
+      <x>110</x>
+      <y>380</y>
       <width>131</width>
       <height>19</height>
      </rect>
@@ -645,8 +645,8 @@
    <widget class="QLabel" name="labelEscolaridad">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>430</y>
+      <x>110</x>
+      <y>420</y>
       <width>131</width>
       <height>19</height>
      </rect>
@@ -658,8 +658,8 @@
    <widget class="QLabel" name="labelSueldoMensualMinimo">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>470</y>
+      <x>110</x>
+      <y>460</y>
       <width>181</width>
       <height>19</height>
      </rect>
@@ -671,8 +671,8 @@
    <widget class="QLabel" name="labelSueldoMensualMaximo">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>510</y>
+      <x>110</x>
+      <y>500</y>
       <width>181</width>
       <height>19</height>
      </rect>
@@ -684,8 +684,8 @@
    <widget class="QLabel" name="labelSector">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>550</y>
+      <x>110</x>
+      <y>540</y>
       <width>181</width>
       <height>19</height>
      </rect>
@@ -697,8 +697,8 @@
    <widget class="QLineEdit" name="lineEditSector">
     <property name="geometry">
      <rect>
-      <x>1050</x>
-      <y>540</y>
+      <x>310</x>
+      <y>530</y>
       <width>311</width>
       <height>27</height>
      </rect>
@@ -707,8 +707,8 @@
    <widget class="QLabel" name="labelHerramientasDominadas">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>310</y>
+      <x>820</x>
+      <y>300</y>
       <width>191</width>
       <height>19</height>
      </rect>
@@ -720,8 +720,8 @@
    <widget class="QLineEdit" name="lineEditHerramientas">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>310</y>
+      <x>1020</x>
+      <y>300</y>
       <width>311</width>
       <height>27</height>
      </rect>
@@ -730,8 +730,8 @@
    <widget class="QLabel" name="labelHabilidadesTecnincas">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>350</y>
+      <x>820</x>
+      <y>340</y>
       <width>191</width>
       <height>19</height>
      </rect>
@@ -743,8 +743,8 @@
    <widget class="QLineEdit" name="lineEditHabilidadesTecnicas">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>350</y>
+      <x>1020</x>
+      <y>340</y>
       <width>311</width>
       <height>27</height>
      </rect>
@@ -753,8 +753,8 @@
    <widget class="QLabel" name="labelHabilidadesBlandas">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>390</y>
+      <x>820</x>
+      <y>380</y>
       <width>191</width>
       <height>19</height>
      </rect>
@@ -766,8 +766,8 @@
    <widget class="QLineEdit" name="lineEditHabilidadesBlandas">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>390</y>
+      <x>1020</x>
+      <y>380</y>
       <width>311</width>
       <height>27</height>
      </rect>
@@ -776,8 +776,8 @@
    <widget class="QLabel" name="labelUbicacion">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>590</y>
+      <x>110</x>
+      <y>580</y>
       <width>181</width>
       <height>19</height>
      </rect>
@@ -789,8 +789,8 @@
    <widget class="QLabel" name="labelLogrosDestacados">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>430</y>
+      <x>820</x>
+      <y>420</y>
       <width>191</width>
       <height>19</height>
      </rect>
@@ -802,8 +802,8 @@
    <widget class="QLineEdit" name="lineEditLogros">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>430</y>
+      <x>1020</x>
+      <y>420</y>
       <width>311</width>
       <height>27</height>
      </rect>
@@ -812,8 +812,8 @@
    <widget class="QLabel" name="labelCertificaciones">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>480</y>
+      <x>820</x>
+      <y>470</y>
       <width>191</width>
       <height>19</height>
      </rect>
@@ -825,8 +825,8 @@
    <widget class="QLineEdit" name="lineEditCertificaciones">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>470</y>
+      <x>1020</x>
+      <y>460</y>
       <width>311</width>
       <height>27</height>
      </rect>
@@ -835,8 +835,8 @@
    <widget class="QLabel" name="labelDisponibilidad">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>520</y>
+      <x>820</x>
+      <y>510</y>
       <width>191</width>
       <height>19</height>
      </rect>
@@ -848,8 +848,8 @@
    <widget class="QComboBox" name="comboBoxDisponibilidad">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>510</y>
+      <x>1020</x>
+      <y>500</y>
       <width>311</width>
       <height>27</height>
      </rect>
@@ -868,8 +868,8 @@
    <widget class="QLabel" name="labelIdioma">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>560</y>
+      <x>820</x>
+      <y>550</y>
       <width>191</width>
       <height>19</height>
      </rect>
@@ -881,8 +881,8 @@
    <widget class="QLabel" name="labelNivelIdioma">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>600</y>
+      <x>820</x>
+      <y>590</y>
       <width>191</width>
       <height>19</height>
      </rect>
@@ -894,8 +894,8 @@
    <widget class="QLabel" name="labelAnosExperiencia">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>650</y>
+      <x>820</x>
+      <y>640</y>
       <width>191</width>
       <height>19</height>
      </rect>
@@ -907,8 +907,8 @@
    <widget class="QLabel" name="labelCarrera">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>630</y>
+      <x>110</x>
+      <y>620</y>
       <width>181</width>
       <height>19</height>
      </rect>
@@ -920,8 +920,8 @@
    <widget class="QLineEdit" name="lineEditCarrera">
     <property name="geometry">
      <rect>
-      <x>1050</x>
-      <y>620</y>
+      <x>310</x>
+      <y>610</y>
       <width>311</width>
       <height>27</height>
      </rect>
@@ -930,8 +930,8 @@
    <widget class="QLabel" name="labelEdad">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>670</y>
+      <x>110</x>
+      <y>660</y>
       <width>181</width>
       <height>19</height>
      </rect>
@@ -943,8 +943,8 @@
    <widget class="QLineEdit" name="lineEdad">
     <property name="geometry">
      <rect>
-      <x>1050</x>
-      <y>660</y>
+      <x>310</x>
+      <y>650</y>
       <width>311</width>
       <height>27</height>
      </rect>
@@ -953,8 +953,8 @@
    <widget class="QLabel" name="labelInformacionExtra">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>720</y>
+      <x>110</x>
+      <y>710</y>
       <width>181</width>
       <height>19</height>
      </rect>
@@ -966,8 +966,8 @@
    <widget class="QTextEdit" name="textEditInformacionAdicional">
     <property name="geometry">
      <rect>
-      <x>1050</x>
-      <y>700</y>
+      <x>310</x>
+      <y>690</y>
       <width>311</width>
       <height>71</height>
      </rect>
@@ -976,8 +976,8 @@
    <widget class="QLabel" name="labelTitulacion">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>700</y>
+      <x>820</x>
+      <y>690</y>
       <width>191</width>
       <height>19</height>
      </rect>
@@ -989,8 +989,8 @@
    <widget class="QComboBox" name="comboBoxTitulacion">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>690</y>
+      <x>1020</x>
+      <y>680</y>
       <width>311</width>
       <height>27</height>
      </rect>

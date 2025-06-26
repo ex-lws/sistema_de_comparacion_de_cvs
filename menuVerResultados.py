@@ -49,6 +49,7 @@ class VentanaMenuVerResultados(QtWidgets.QMainWindow):
         self.tableViewVerResultados.doubleClicked.connect(self.descargar_pdf)
         self.tableViewVerResultados.setItemDelegateForColumn(5, PdfIconDelegate(self))  # Cambia el 4 por el índice correcto
         self.labelConfiguracion.mousePressEvent = self.abrir_ventana_menu_configuracion
+
     
     def abrir_ventana_menu_principal(self, event):
         # Importamos la ventana del menú principal y la mostramos para esta función.
@@ -96,7 +97,7 @@ class VentanaMenuVerResultados(QtWidgets.QMainWindow):
 
         # Hacer que los encabezados ocupen todo el ancho del tableView
         header = self.tableViewVerResultados.horizontalHeader()
-        header.setSectionResizeMode(QHeaderView.ResizeMode.ResizeToContents)
+        header.setSectionResizeMode(QHeaderView.ResizeMode.Stretch)
 
     def descargar_pdf(self, index):
     # Supón que la columna del BLOB es la 4 (ajusta según tu tabla)
@@ -104,7 +105,7 @@ class VentanaMenuVerResultados(QtWidgets.QMainWindow):
         if index.column() == columna_pdf:
             row = index.row()
             record = self.model.record(row)
-            pdf_data = record.value("pdfCurriculum")
+            pdf_data = record.value("pdf_curriculum")
             if pdf_data:
                 # Selecciona dónde guardar el archivo
                 ruta, _ = QtWidgets.QFileDialog.getSaveFileName(self, "Guardar PDF", "curriculum.pdf", "PDF Files (*.pdf)")

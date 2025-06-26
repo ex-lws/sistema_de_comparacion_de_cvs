@@ -19,6 +19,7 @@ class VentanaMenuConfiguracion(QtWidgets.QMainWindow):
         self.labelVolverInicio.mousePressEvent = self.abrir_ventana_menu_principal
         self.labelBorrarCurriculums.mousePressEvent = self.borrar_curriculums
         self.labelBorrarDatos.mousePressEvent = self.borrar_datos
+        self.labelBorrarResultados.mousePressEvent = self.borrar_resultados
     
     def abrir_ventana_menu_principal(self, event):
         from menuPrincipal import VentanaMenuPrincipal
@@ -38,7 +39,10 @@ class VentanaMenuConfiguracion(QtWidgets.QMainWindow):
     def borrar_datos(self, *args):
         borrarBD()
         QMessageBox.information(self, "Éxito", "Datos borrados exitosamente")
-    
+
+    def borrar_resultados(self, *args):
+        borrarTablaResultados()
+        QMessageBox.information(self, "Éxito", "Resultados borrados exitosamente")
     
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)

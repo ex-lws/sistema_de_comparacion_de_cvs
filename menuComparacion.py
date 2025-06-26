@@ -63,7 +63,7 @@ class VentanaMenuComparacion(QtWidgets.QMainWindow):
             datos_perfil = obtener_perfil_por_id_para_insertar_en_resultados(id_seleccionado_para_comparar)
             insertar_resultados_comparacion(resultados_primera_fase, rutaCarpetaCurriculumsDefinitivos, datos_perfil, id_seleccionado_para_comparar)
             print("Puede consultar la tabla de resultados para información más detallada.")
-            QMessageBox.information(self, "Éxito", "comparación realizada de manera exitosa.")
+            QMessageBox.information(self, "Éxito", "comparación realizada de manera exitosa. Consulte la ventana de resultados.")
             self.model.select() # Actualizamos el modelo para reflejar los cambios en la tabla.
             self.lineEditIdPerfilComparar.clear()
             
