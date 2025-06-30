@@ -76,8 +76,9 @@ def main():
             # Este método embebe la extracción de texto de los PDFs y su limpieza.
             print("Extrayendo y limpiando textos de los curriculums temporales...")
             diccionario_con_rutas_y_textos_limpiados = generar_diccionario_textos(rutaCarpetaCurriculumsTemporales)
-            # Comienza el proces de comparación.
-            resultados_primera_fase = comparar_curriculums(diccionario_con_rutas_y_textos_limpiados, perfil_extraido)
+            # Comienza el proceso de comparación y se le solicita al usuario ingresar el umbral mínmo.
+            umbral_seleccionado_por_el_usuario = float(input("Por favor, escriba el porcentaje de similitud que se quiere alncanzar:"))
+            resultados_primera_fase = comparar_curriculums(diccionario_con_rutas_y_textos_limpiados, perfil_extraido, umbral_seleccionado_por_el_usuario)
             # Mostrar los resultados de la comparación en la primera fase.
             print(mostrarResultadosTrasComparacion(resultados_primera_fase))
             #Comienza el movimiento de los curriculums temporales a los definitivos.
@@ -131,4 +132,5 @@ def main():
             break
         else:
             print("Opción no válida, por favor intenta de nuevo.")
+            
 main()

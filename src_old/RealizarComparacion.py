@@ -18,10 +18,10 @@ porcentajeSimulitd = 50.0
 # Este método permite comparar un perfil con los curriculums.
 # Requiere como parámetros un diccionario con las rutas relativas de los cvs temporale y su texto extraído y limpiado.
 # Requiere también el perfil que se quiere comparar, previamente extraido y guardado en una variable.
-def comparar_curriculums(curriculums, perfilEncontrado):
+def comparar_curriculums(curriculums, perfilEncontrado, porcentajeSimilitud):
     """
     Compara la similitud entre el perfil y cada currículum usando embeddings y devuelve los porcentajes.
-    Este modelo de lenguaje transforma el texto en embeddings y calcula la similitud coseno entre ellos.
+    Solo incluye resultados iguales o mayores al porcentajeSimilitud dado.
     """
     resultados = {}
     embedding_perfil = modelo.encode(perfilEncontrado, convert_to_tensor=True)
@@ -30,9 +30,9 @@ def comparar_curriculums(curriculums, perfilEncontrado):
         similitud_tensor = util.pytorch_cos_sim(embedding_perfil, embedding_cv)
         similitud = similitud_tensor[0][0].item()
         similitud_normalizada = (similitud + 1) / 2
-        porcentaje_num = round(similitud_normalizada * 100, 2)
-        if porcentaje_num >= porcentajeSimulitd:
-            resultados[nombre] = f"{porcentaje_num} %"
+        porcentaje_cv = round(similitud_normalizada * 100, 2)
+        if porcentaje_cv >= porcentajeSimilitud:
+            resultados[nombre] = f"{porcentaje_cv} %"
     return resultados
 
 # Este método permite mostrar los resultados de la comparación en la consola.

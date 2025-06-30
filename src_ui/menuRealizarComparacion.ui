@@ -94,9 +94,9 @@
     <property name="geometry">
      <rect>
       <x>1280</x>
-      <y>360</y>
+      <y>450</y>
       <width>591</width>
-      <height>381</height>
+      <height>291</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -126,11 +126,96 @@
     <property name="geometry">
      <rect>
       <x>1630</x>
-      <y>250</y>
-      <width>201</width>
-      <height>51</height>
+      <y>220</y>
+      <width>211</width>
+      <height>61</height>
      </rect>
     </property>
+   </widget>
+   <widget class="QComboBox" name="comboBoxUmbralComparacion">
+    <property name="geometry">
+     <rect>
+      <x>1630</x>
+      <y>340</y>
+      <width>211</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>30.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>35.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>40.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>45.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>50.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>55.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>60.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>65.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>70.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>75.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>80.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>85.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>90.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>95.0</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>100.0</string>
+     </property>
+    </item>
    </widget>
    <zorder>labelFondoMenuRealizarComparacion</zorder>
    <zorder>labelRealizarEliminacion</zorder>
@@ -139,6 +224,7 @@
    <zorder>labelRealizarComparacion</zorder>
    <zorder>lineEditIdPerfilComparar</zorder>
    <zorder>tableViewVerPerfiles</zorder>
+   <zorder>comboBoxUmbralComparacion</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

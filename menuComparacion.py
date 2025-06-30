@@ -51,12 +51,13 @@ class VentanaMenuComparacion(QtWidgets.QMainWindow):
         rutaCarpetaCurriculumsDefinitivos = "cvsDefinitivos" 
         id_seleccionado_para_comparar = (self.lineEditIdPerfilComparar.text().strip())
         id_existe = existe_id_perfil(id_seleccionado_para_comparar)
+        umbral_seleccionado = float(self.comboBoxUmbralComparacion.currentText().strip())
 
         if id_existe:
             id_seleccionado_para_comparar = int(id_seleccionado_para_comparar)
             perfil = obtener_perfil_por_id(id_seleccionado_para_comparar)
             diccionario_con_rutas_y_textos_limpiados = generar_diccionario_textos(rutaCarpetaCurriculumsTemporales)
-            resultados_primera_fase = comparar_curriculums(diccionario_con_rutas_y_textos_limpiados, perfil)
+            resultados_primera_fase = comparar_curriculums(diccionario_con_rutas_y_textos_limpiados, perfil, umbral_seleccionado)
             print(mostrarResultadosTrasComparacion(resultados_primera_fase))
             moverCurriculumsTemporalesADefinitivos(resultados_primera_fase, rutaCarpetaCurriculumsTemporales, rutaCarpetaCurriculumsDefinitivos)
             # Comienza la inserción de los resultados en la base de datos tras la comparación.
