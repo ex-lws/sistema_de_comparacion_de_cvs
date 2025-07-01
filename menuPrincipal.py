@@ -112,5 +112,5 @@ class VentanaMenuPrincipal(QtWidgets.QMainWindow):
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    ventanaMenuPrincipal = VentanaMenuPrincipal(None)  # Pasamos None como parent inicial
+    ventanaMenuPrincipal = VentanaMenuPrincipal(None)
     sys.exit(app.exec())
