@@ -42,29 +42,13 @@
      <pixmap>menuRealizarComparacionFigma.png</pixmap>
     </property>
    </widget>
-   <widget class="QLabel" name="labelRealizarEliminacion">
-    <property name="geometry">
-     <rect>
-      <x>1080</x>
-      <y>730</y>
-      <width>301</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:transparent;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QLabel" name="labelVolverInicio">
     <property name="geometry">
      <rect>
-      <x>1470</x>
-      <y>20</y>
-      <width>371</width>
-      <height>91</height>
+      <x>430</x>
+      <y>0</y>
+      <width>431</width>
+      <height>101</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -77,10 +61,10 @@
    <widget class="QLabel" name="labelConfiguracion">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>10</y>
-      <width>311</width>
-      <height>111</height>
+      <x>860</x>
+      <y>0</y>
+      <width>531</width>
+      <height>101</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -93,10 +77,10 @@
    <widget class="QLabel" name="labelRealizarComparacion">
     <property name="geometry">
      <rect>
-      <x>1280</x>
+      <x>1390</x>
       <y>450</y>
-      <width>591</width>
-      <height>291</height>
+      <width>431</width>
+      <height>301</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -109,10 +93,10 @@
    <widget class="QTableView" name="tableViewVerPerfiles">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>140</y>
-      <width>1261</width>
-      <height>671</height>
+      <x>90</x>
+      <y>170</y>
+      <width>1281</width>
+      <height>591</height>
      </rect>
     </property>
     <property name="verticalScrollBarPolicy">
@@ -125,20 +109,20 @@
    <widget class="QLineEdit" name="lineEditIdPerfilComparar">
     <property name="geometry">
      <rect>
-      <x>1630</x>
-      <y>220</y>
-      <width>211</width>
-      <height>61</height>
+      <x>1640</x>
+      <y>210</y>
+      <width>171</width>
+      <height>71</height>
      </rect>
     </property>
    </widget>
    <widget class="QComboBox" name="comboBoxUmbralComparacion">
     <property name="geometry">
      <rect>
-      <x>1630</x>
-      <y>340</y>
-      <width>211</width>
-      <height>61</height>
+      <x>1640</x>
+      <y>310</y>
+      <width>171</width>
+      <height>81</height>
      </rect>
     </property>
     <item>
@@ -218,7 +202,6 @@
     </item>
    </widget>
    <zorder>labelFondoMenuRealizarComparacion</zorder>
-   <zorder>labelRealizarEliminacion</zorder>
    <zorder>labelVolverInicio</zorder>
    <zorder>labelConfiguracion</zorder>
    <zorder>labelRealizarComparacion</zorder>

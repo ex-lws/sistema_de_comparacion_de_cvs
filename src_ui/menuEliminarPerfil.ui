@@ -45,10 +45,10 @@
    <widget class="QLabel" name="labelRealizarEliminacion">
     <property name="geometry">
      <rect>
-      <x>1080</x>
-      <y>730</y>
-      <width>301</width>
-      <height>71</height>
+      <x>1290</x>
+      <y>650</y>
+      <width>291</width>
+      <height>101</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -61,10 +61,10 @@
    <widget class="QLabel" name="labelVolverInicio">
     <property name="geometry">
      <rect>
-      <x>1500</x>
+      <x>430</x>
       <y>0</y>
-      <width>371</width>
-      <height>91</height>
+      <width>431</width>
+      <height>101</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -77,30 +77,30 @@
    <widget class="QLineEdit" name="lineEditIdPerfilEliminar">
     <property name="geometry">
      <rect>
-      <x>880</x>
-      <y>730</y>
-      <width>181</width>
-      <height>71</height>
+      <x>1030</x>
+      <y>660</y>
+      <width>211</width>
+      <height>81</height>
      </rect>
     </property>
    </widget>
    <widget class="QTableView" name="tableViewVerPerfiles">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>150</y>
-      <width>1691</width>
-      <height>551</height>
+      <x>90</x>
+      <y>170</y>
+      <width>1741</width>
+      <height>451</height>
      </rect>
     </property>
    </widget>
    <widget class="QLabel" name="labelConfiguracion">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>860</x>
       <y>0</y>
-      <width>311</width>
-      <height>111</height>
+      <width>531</width>
+      <height>101</height>
      </rect>
     </property>
     <property name="styleSheet">

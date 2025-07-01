@@ -42,29 +42,13 @@
      <pixmap>menuVerResultadosFigma.png</pixmap>
     </property>
    </widget>
-   <widget class="QLabel" name="labelRealizarEliminacion">
-    <property name="geometry">
-     <rect>
-      <x>1080</x>
-      <y>730</y>
-      <width>301</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:transparent;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QLabel" name="labelVolverInicio">
     <property name="geometry">
      <rect>
-      <x>1490</x>
-      <y>20</y>
-      <width>371</width>
-      <height>91</height>
+      <x>430</x>
+      <y>0</y>
+      <width>431</width>
+      <height>101</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -77,10 +61,10 @@
    <widget class="QLabel" name="labelConfiguracion">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>10</y>
-      <width>311</width>
-      <height>111</height>
+      <x>860</x>
+      <y>0</y>
+      <width>531</width>
+      <height>101</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -93,10 +77,10 @@
    <widget class="QTableView" name="tableViewVerResultados">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>260</y>
-      <width>1861</width>
-      <height>551</height>
+      <x>90</x>
+      <y>240</y>
+      <width>1741</width>
+      <height>521</height>
      </rect>
     </property>
    </widget>

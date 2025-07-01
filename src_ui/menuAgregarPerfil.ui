@@ -45,10 +45,10 @@
    <widget class="QLabel" name="labelConfiguracion">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>850</x>
       <y>0</y>
-      <width>261</width>
-      <height>121</height>
+      <width>531</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -61,10 +61,10 @@
    <widget class="QLabel" name="labelAgregarPerfil">
     <property name="geometry">
      <rect>
-      <x>1460</x>
-      <y>290</y>
-      <width>381</width>
-      <height>341</height>
+      <x>1490</x>
+      <y>390</y>
+      <width>321</width>
+      <height>171</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -77,8 +77,8 @@
    <widget class="QLineEdit" name="lineEditNombrePerfil">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>290</y>
+      <x>350</x>
+      <y>260</y>
       <width>311</width>
       <height>31</height>
      </rect>
@@ -96,8 +96,8 @@
    <widget class="QLineEdit" name="lineEditSalarioMinimo">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>450</y>
+      <x>350</x>
+      <y>420</y>
       <width>311</width>
       <height>31</height>
      </rect>
@@ -109,8 +109,8 @@
    <widget class="QLineEdit" name="lineEditSalarioMaximo">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>490</y>
+      <x>350</x>
+      <y>460</y>
       <width>311</width>
       <height>31</height>
      </rect>
@@ -122,8 +122,8 @@
    <widget class="QComboBox" name="comboBoxAreaTrabajo">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>370</y>
+      <x>350</x>
+      <y>340</y>
       <width>311</width>
       <height>31</height>
      </rect>
@@ -247,8 +247,8 @@
    <widget class="QLineEdit" name="lineEditPuestoTrabajo">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>330</y>
+      <x>350</x>
+      <y>300</y>
       <width>311</width>
       <height>31</height>
      </rect>
@@ -263,8 +263,8 @@
    <widget class="QComboBox" name="comboBoxIdioma">
     <property name="geometry">
      <rect>
-      <x>1020</x>
-      <y>540</y>
+      <x>1060</x>
+      <y>530</y>
       <width>311</width>
       <height>31</height>
      </rect>
@@ -303,8 +303,8 @@
    <widget class="QComboBox" name="comboBoxNivelIdioma">
     <property name="geometry">
      <rect>
-      <x>1020</x>
-      <y>580</y>
+      <x>1060</x>
+      <y>570</y>
       <width>311</width>
       <height>31</height>
      </rect>
@@ -333,15 +333,15 @@
    <widget class="QComboBox" name="comboBoxEscolaridad">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>410</y>
+      <x>350</x>
+      <y>380</y>
       <width>311</width>
       <height>31</height>
      </rect>
     </property>
     <item>
      <property name="text">
-      <string>Educacion basica o secundaria</string>
+      <string>Educacion básica o secundaria</string>
      </property>
     </item>
     <item>
@@ -358,8 +358,8 @@
    <widget class="QComboBox" name="comboBoxUbicacion">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>570</y>
+      <x>350</x>
+      <y>540</y>
       <width>311</width>
       <height>31</height>
      </rect>
@@ -528,10 +528,10 @@
    <widget class="QLabel" name="labelVolverInicio">
     <property name="geometry">
      <rect>
-      <x>1470</x>
-      <y>20</y>
-      <width>321</width>
-      <height>81</height>
+      <x>420</x>
+      <y>0</y>
+      <width>431</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="text">
@@ -541,8 +541,8 @@
    <widget class="QComboBox" name="comboBoxAnosExperiencia">
     <property name="geometry">
      <rect>
-      <x>1020</x>
-      <y>630</y>
+      <x>1060</x>
+      <y>620</y>
       <width>311</width>
       <height>31</height>
      </rect>
@@ -606,11 +606,14 @@
    <widget class="QLabel" name="labelNombrePerfil">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>300</y>
+      <x>150</x>
+      <y>270</y>
       <width>131</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(48, 55, 132);</string>
     </property>
     <property name="text">
      <string>Nombre del perfil:</string>
@@ -619,11 +622,14 @@
    <widget class="QLabel" name="labelPuestoDeseado">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>340</y>
+      <x>150</x>
+      <y>310</y>
       <width>131</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(48, 55, 132);</string>
     </property>
     <property name="text">
      <string>Puesto deseado:</string>
@@ -632,11 +638,14 @@
    <widget class="QLabel" name="labelAreaFuncional">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>380</y>
+      <x>150</x>
+      <y>350</y>
       <width>131</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(48, 55, 132);</string>
     </property>
     <property name="text">
      <string>Área funcional:</string>
@@ -645,11 +654,14 @@
    <widget class="QLabel" name="labelEscolaridad">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>420</y>
+      <x>150</x>
+      <y>390</y>
       <width>131</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(48, 55, 132);</string>
     </property>
     <property name="text">
      <string>Escolaridad:</string>
@@ -658,11 +670,14 @@
    <widget class="QLabel" name="labelSueldoMensualMinimo">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>460</y>
+      <x>150</x>
+      <y>430</y>
       <width>181</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(48, 55, 132);</string>
     </property>
     <property name="text">
      <string>Sueldo mensual mínimo:</string>
@@ -671,11 +686,14 @@
    <widget class="QLabel" name="labelSueldoMensualMaximo">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>500</y>
+      <x>150</x>
+      <y>470</y>
       <width>181</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(48, 55, 132);</string>
     </property>
     <property name="text">
      <string>Sueldo mensual máximo:</string>
@@ -684,11 +702,14 @@
    <widget class="QLabel" name="labelSector">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>540</y>
+      <x>150</x>
+      <y>510</y>
       <width>181</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(48, 55, 132);</string>
     </property>
     <property name="text">
      <string>Sector o giro:</string>
@@ -697,8 +718,8 @@
    <widget class="QLineEdit" name="lineEditSector">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>530</y>
+      <x>350</x>
+      <y>500</y>
       <width>311</width>
       <height>27</height>
      </rect>
@@ -707,11 +728,14 @@
    <widget class="QLabel" name="labelHerramientasDominadas">
     <property name="geometry">
      <rect>
-      <x>820</x>
-      <y>300</y>
+      <x>860</x>
+      <y>290</y>
       <width>191</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(48, 55, 132);</string>
     </property>
     <property name="text">
      <string>Herramientas dominadas:</string>
@@ -720,8 +744,8 @@
    <widget class="QLineEdit" name="lineEditHerramientas">
     <property name="geometry">
      <rect>
-      <x>1020</x>
-      <y>300</y>
+      <x>1060</x>
+      <y>290</y>
       <width>311</width>
       <height>27</height>
      </rect>
@@ -730,11 +754,14 @@
    <widget class="QLabel" name="labelHabilidadesTecnincas">
     <property name="geometry">
      <rect>
-      <x>820</x>
-      <y>340</y>
+      <x>860</x>
+      <y>330</y>
       <width>191</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(48, 55, 132);</string>
     </property>
     <property name="text">
      <string>Habilidades técnicas:</string>
@@ -743,8 +770,8 @@
    <widget class="QLineEdit" name="lineEditHabilidadesTecnicas">
     <property name="geometry">
      <rect>
-      <x>1020</x>
-      <y>340</y>
+      <x>1060</x>
+      <y>330</y>
       <width>311</width>
       <height>27</height>
      </rect>
@@ -753,11 +780,14 @@
    <widget class="QLabel" name="labelHabilidadesBlandas">
     <property name="geometry">
      <rect>
-      <x>820</x>
-      <y>380</y>
+      <x>860</x>
+      <y>370</y>
       <width>191</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(48, 55, 132);</string>
     </property>
     <property name="text">
      <string>Habilidades blandas:</string>
@@ -766,8 +796,8 @@
    <widget class="QLineEdit" name="lineEditHabilidadesBlandas">
     <property name="geometry">
      <rect>
-      <x>1020</x>
-      <y>380</y>
+      <x>1060</x>
+      <y>370</y>
       <width>311</width>
       <height>27</height>
      </rect>
@@ -776,11 +806,14 @@
    <widget class="QLabel" name="labelUbicacion">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>580</y>
+      <x>150</x>
+      <y>550</y>
       <width>181</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(48, 55, 132);</string>
     </property>
     <property name="text">
      <string>Ubicación:</string>
@@ -789,11 +822,14 @@
    <widget class="QLabel" name="labelLogrosDestacados">
     <property name="geometry">
      <rect>
-      <x>820</x>
-      <y>420</y>
+      <x>860</x>
+      <y>410</y>
       <width>191</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(48, 55, 132);</string>
     </property>
     <property name="text">
      <string>Logros destacados:</string>
@@ -802,8 +838,8 @@
    <widget class="QLineEdit" name="lineEditLogros">
     <property name="geometry">
      <rect>
-      <x>1020</x>
-      <y>420</y>
+      <x>1060</x>
+      <y>410</y>
       <width>311</width>
       <height>27</height>
      </rect>
@@ -812,11 +848,14 @@
    <widget class="QLabel" name="labelCertificaciones">
     <property name="geometry">
      <rect>
-      <x>820</x>
-      <y>470</y>
+      <x>860</x>
+      <y>460</y>
       <width>191</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(48, 55, 132);</string>
     </property>
     <property name="text">
      <string>Certificaciones:</string>
@@ -825,8 +864,8 @@
    <widget class="QLineEdit" name="lineEditCertificaciones">
     <property name="geometry">
      <rect>
-      <x>1020</x>
-      <y>460</y>
+      <x>1060</x>
+      <y>450</y>
       <width>311</width>
       <height>27</height>
      </rect>
@@ -835,11 +874,14 @@
    <widget class="QLabel" name="labelDisponibilidad">
     <property name="geometry">
      <rect>
-      <x>820</x>
-      <y>510</y>
+      <x>860</x>
+      <y>500</y>
       <width>191</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(48, 55, 132);</string>
     </property>
     <property name="text">
      <string>Disponibilidad:</string>
@@ -848,8 +890,8 @@
    <widget class="QComboBox" name="comboBoxDisponibilidad">
     <property name="geometry">
      <rect>
-      <x>1020</x>
-      <y>500</y>
+      <x>1060</x>
+      <y>490</y>
       <width>311</width>
       <height>27</height>
      </rect>
@@ -868,11 +910,14 @@
    <widget class="QLabel" name="labelIdioma">
     <property name="geometry">
      <rect>
-      <x>820</x>
-      <y>550</y>
+      <x>860</x>
+      <y>540</y>
       <width>191</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(48, 55, 132);</string>
     </property>
     <property name="text">
      <string>Idioma:</string>
@@ -881,11 +926,14 @@
    <widget class="QLabel" name="labelNivelIdioma">
     <property name="geometry">
      <rect>
-      <x>820</x>
-      <y>590</y>
+      <x>860</x>
+      <y>580</y>
       <width>191</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(48, 55, 132);</string>
     </property>
     <property name="text">
      <string>Nivel de idioma:</string>
@@ -894,11 +942,14 @@
    <widget class="QLabel" name="labelAnosExperiencia">
     <property name="geometry">
      <rect>
-      <x>820</x>
-      <y>640</y>
+      <x>860</x>
+      <y>630</y>
       <width>191</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(48, 55, 132);</string>
     </property>
     <property name="text">
      <string>Años de experiencia</string>
@@ -907,11 +958,14 @@
    <widget class="QLabel" name="labelCarrera">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>620</y>
+      <x>150</x>
+      <y>590</y>
       <width>181</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(48, 55, 132);</string>
     </property>
     <property name="text">
      <string>Carrera afín:</string>
@@ -920,8 +974,8 @@
    <widget class="QLineEdit" name="lineEditCarrera">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>610</y>
+      <x>350</x>
+      <y>580</y>
       <width>311</width>
       <height>27</height>
      </rect>
@@ -930,11 +984,14 @@
    <widget class="QLabel" name="labelEdad">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>660</y>
+      <x>150</x>
+      <y>630</y>
       <width>181</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(48, 55, 132);</string>
     </property>
     <property name="text">
      <string>Edad:</string>
@@ -943,8 +1000,8 @@
    <widget class="QLineEdit" name="lineEdad">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>650</y>
+      <x>350</x>
+      <y>620</y>
       <width>311</width>
       <height>27</height>
      </rect>
@@ -953,11 +1010,14 @@
    <widget class="QLabel" name="labelInformacionExtra">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>710</y>
+      <x>150</x>
+      <y>680</y>
       <width>181</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(48, 55, 132);</string>
     </property>
     <property name="text">
      <string>Información adicional:</string>
@@ -966,8 +1026,8 @@
    <widget class="QTextEdit" name="textEditInformacionAdicional">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>690</y>
+      <x>350</x>
+      <y>660</y>
       <width>311</width>
       <height>71</height>
      </rect>
@@ -976,11 +1036,14 @@
    <widget class="QLabel" name="labelTitulacion">
     <property name="geometry">
      <rect>
-      <x>820</x>
-      <y>690</y>
+      <x>860</x>
+      <y>680</y>
       <width>191</width>
       <height>19</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(48, 55, 132);</string>
     </property>
     <property name="text">
      <string>Titulación requerida:</string>
@@ -989,8 +1052,8 @@
    <widget class="QComboBox" name="comboBoxTitulacion">
     <property name="geometry">
      <rect>
-      <x>1020</x>
-      <y>680</y>
+      <x>1060</x>
+      <y>670</y>
       <width>311</width>
       <height>27</height>
      </rect>

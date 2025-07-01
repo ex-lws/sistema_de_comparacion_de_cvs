@@ -42,28 +42,12 @@
      <pixmap>menuEditarPerfilFigma.png</pixmap>
     </property>
    </widget>
-   <widget class="QLabel" name="labelRealizarEdicion">
-    <property name="geometry">
-     <rect>
-      <x>1080</x>
-      <y>730</y>
-      <width>291</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:transparent;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QLabel" name="labelVolverInicio">
     <property name="geometry">
      <rect>
-      <x>1500</x>
+      <x>430</x>
       <y>0</y>
-      <width>371</width>
+      <width>431</width>
       <height>91</height>
      </rect>
     </property>
@@ -77,20 +61,20 @@
    <widget class="QTableView" name="tableViewVerPerfiles">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>270</y>
-      <width>1861</width>
-      <height>551</height>
+      <x>90</x>
+      <y>230</y>
+      <width>1741</width>
+      <height>521</height>
      </rect>
     </property>
    </widget>
    <widget class="QLabel" name="labelConfiguracion">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>860</x>
       <y>0</y>
-      <width>311</width>
-      <height>111</height>
+      <width>531</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
